@@ -18,8 +18,8 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
       <p class="hero__subtitle">Premier Student Group Rental — One Block from Campus</p>
       <p class="hero__disclaimer">Not owned by or affiliated with the University of Washington</p>
       <div class="hero__actions">
-        <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
-        <a href={`${b}/about`} class="btn btn--outline-white">See the Property</a>
+        <a href={`${b}/about`} class="btn btn--gold">See the Property</a>
+        <a href={`${b}/lease-process`} class="btn btn--outline-white">Lease Process</a>
       </div>
     </div>
   </section>
@@ -123,33 +123,6 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
     </div>
   </section>
 
-  <!-- APPLY CALLOUT -->
-  <section class="section section--gray">
-    <div class="container">
-      <div class="two-col">
-        <div>
-          <img src={`${b}/images/cherry-blossoms.png`} alt="Cherry blossoms near UW"
-            style="border-radius:8px;" loading="lazy" />
-        </div>
-        <div>
-          <h2 style="color:var(--uw-purple);">Ready to Apply?</h2>
-          <div class="gold-bar" style="margin-left:0;"></div>
-          <p>
-            UW Manor rents the entire house as a <strong>group rental</strong>.
-            Fill out our online application right in your browser — no printing or scanning needed.
-          </p>
-          <ul style="margin:0.75rem 0 1.5rem 1.5rem; line-height:2.1;">
-            <li>Contact us to discuss pricing &amp; availability</li>
-            <li>Complete the online application</li>
-            <li>Sign the lease &amp; make required deposits</li>
-            <li>Move in — keys waiting for you</li>
-          </ul>
-          <a href={`${b}/apply`} class="btn btn--gold">Fill Out Application</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA STRIP -->
   <div class="cta-strip">
     <div class="container">
@@ -159,7 +132,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
         &nbsp;·&nbsp;
         <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold); font-weight:700;">uwmanor@gmail.com</a>
       </p>
-      <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
+      <a href={`${b}/lease-process`} class="btn btn--gold">Learn About the Lease Process</a>
     </div>
   </div>
 

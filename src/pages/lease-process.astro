@@ -31,7 +31,6 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <a href="tel:+12068582843">206-858-2843</a> &nbsp;·&nbsp;
             <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
           </p>
-          <a href={`${b}/apply`} class="btn btn--gold" style="margin-top:0.5rem;">Start Your Application</a>
         </div>
         <div>
           <img src={`${b}/images/dining-room.jpg`} alt="UW Manor dining room"
@@ -54,10 +53,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <p>
               Email <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or call
               <a href="tel:+12068582843">206-858-2843</a> to get pricing and availability.
-              Then complete our <a href={`${b}/apply`}><strong>online rental application</strong></a> —
-              fill it out in your browser and submit directly. No printing required.
             </p>
-            <a href={`${b}/apply`} class="btn btn--purple" style="margin-top:0.5rem;">Fill Out Application</a>
           </div>
         </li>
         <li class="step" style="margin-top:2rem;">
@@ -122,8 +118,11 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
   <div class="cta-strip">
     <div class="container">
       <h2>Ready to Move Forward?</h2>
-      <p>Apply online today — it only takes a few minutes.</p>
-      <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
+      <p>
+        <a href="tel:+12068582843" style="color:var(--uw-gold); font-weight:700;">206-858-2843</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold); font-weight:700;">uwmanor@gmail.com</a>
+      </p>
     </div>
   </div>
 
