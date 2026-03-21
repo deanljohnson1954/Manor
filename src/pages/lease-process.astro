@@ -1,46 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <BaseLayout
   title="Lease Process"
-  description="Learn how to rent UW Manor. Three simple steps: contact us, submit an application, sign the lease, and move in. Group rental for student housing in Seattle near UW."
+  description="Three simple steps to rent UW Manor: contact us, submit your application, sign the lease, and move in. Group rental student housing near the University of Washington."
   image="/images/dining-room.jpg"
 >
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="container">
       <h1>Lease Process</h1>
-      <p class="page-header__sub">Three simple steps to make UW Manor your new home</p>
+      <span class="page-header__sub">Three simple steps to make UW Manor your new home</span>
     </div>
   </div>
 
-  <!-- INTRO + HERO IMAGE -->
+  <!-- INTRO -->
   <section class="section">
     <div class="container">
       <div class="two-col">
         <div>
           <h2 style="color:var(--uw-purple);">How It Works</h2>
           <div class="gold-bar" style="margin-left:0;"></div>
-          <p style="font-size:1.05rem; color:var(--text-mid);">
-            We rent UW Manor as a <strong>group rental</strong> — the entire house is leased to
-            one group of students. The process is straightforward and we guide you every step of the way.
-          </p>
           <p>
-            <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a><br />
-            <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+            We rent UW Manor as a <strong>group rental</strong> — the entire house is leased to
+            one group of students. The process is simple and we guide you every step of the way.
           </p>
-          <a href={`${base}apply`} class="btn btn--gold" style="margin-top:0.5rem;">Start Your Application</a>
+          <p style="font-size:0.9rem; color:var(--text-mid);">
+            <a href="tel:+12068582843">206-858-2843</a> &nbsp;·&nbsp;
+            <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+          </p>
+          <a href={`${b}/apply`} class="btn btn--gold" style="margin-top:0.5rem;">Start Your Application</a>
         </div>
         <div>
-          <img
-            src={`${base}images/dining-room.jpg`}
-            alt="UW Manor dining room"
-            style="border-radius:8px; border:3px solid var(--uw-gold-light);"
-            loading="lazy"
-          />
+          <img src={`${b}/images/dining-room.jpg`} alt="UW Manor dining room"
+            style="border-radius:8px; border:3px solid var(--uw-gold-light); width:100%;" loading="lazy" />
         </div>
       </div>
     </div>
@@ -51,7 +46,6 @@ const base = import.meta.env.BASE_URL;
     <div class="container" style="max-width:800px;">
       <h2 class="section-heading">The Three Steps</h2>
       <div class="gold-bar"></div>
-
       <ol class="steps">
         <li class="step">
           <div class="step__number" aria-hidden="true">1</div>
@@ -59,32 +53,30 @@ const base = import.meta.env.BASE_URL;
             <h3>Contact Us &amp; Submit Your Application</h3>
             <p>
               Email <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or call
-              <a href="tel:+12068582843">206-858-2843</a> to express interest and get pricing details.
-              Then complete our <a href={`${base}apply`}><strong>online rental application</strong></a> —
-              fill it out right in your browser and submit directly. No printing required.
+              <a href="tel:+12068582843">206-858-2843</a> to get pricing and availability.
+              Then complete our <a href={`${b}/apply`}><strong>online rental application</strong></a> —
+              fill it out in your browser and submit directly. No printing required.
             </p>
-            <a href={`${base}apply`} class="btn btn--purple" style="margin-top:0.5rem;">Fill Out Application</a>
+            <a href={`${b}/apply`} class="btn btn--purple" style="margin-top:0.5rem;">Fill Out Application</a>
           </div>
         </li>
-
         <li class="step" style="margin-top:2rem;">
           <div class="step__number" aria-hidden="true">2</div>
           <div class="step__body">
             <h3>Complete Lease &amp; Make Required Deposits</h3>
             <p>
-              Once your group is approved, you'll complete a lease agreement and make the required deposits.
-              We'll walk you through every detail of this process once your group has been selected.
+              Once approved, your group will complete a lease agreement and make the required deposits.
+              We'll walk you through every detail once your group has been selected.
             </p>
           </div>
         </li>
-
         <li class="step" style="margin-top:2rem;">
           <div class="step__number" aria-hidden="true">3</div>
           <div class="step__body">
             <h3>Easy Move-In</h3>
             <p>
-              On your move-in date, your keys will be waiting for you. We'll complete a condition
-              form documenting the state of your bedroom and common areas to protect everyone.
+              On move-in day, your keys will be waiting. We'll complete a condition form documenting
+              the state of your bedroom and common areas to protect everyone.
             </p>
           </div>
         </li>
@@ -92,58 +84,46 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- PHOTO ROW -->
+  <!-- PHOTOS -->
   <section class="section">
     <div class="container">
       <h2 class="section-heading">What Awaits You</h2>
       <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src={`${base}images/kitchen-family-room.jpg`} alt="UW Manor kitchen and family room" loading="lazy" />
-        <img src={`${base}images/backyard-turf.jpg`} alt="UW Manor backyard" loading="lazy" />
-        <img src={`${base}images/back-decks.jpg`} alt="UW Manor decks" loading="lazy" />
-        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor bathroom" loading="lazy" />
+        <img src={`${b}/images/kitchen-family-room.jpg`} alt="Kitchen and family room" loading="lazy" />
+        <img src={`${b}/images/backyard-turf.jpg`}       alt="Backyard"                loading="lazy" />
+        <img src={`${b}/images/back-decks.jpg`}          alt="Decks"                   loading="lazy" />
+        <img src={`${b}/images/main-bathroom.jpg`}       alt="Bathroom"                loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="section section--gray">
-    <div class="container" style="max-width:800px;">
+    <div class="container" style="max-width:780px;">
       <h2 class="section-heading">Frequently Asked Questions</h2>
       <div class="gold-bar"></div>
-
-      <div style="margin-top:2rem; display:flex; flex-direction:column; gap:1.75rem;">
-
-        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
-          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">Is UW Manor affiliated with the University of Washington?</h3>
-          <p style="margin:0;">No. UW Manor is privately owned and not affiliated with the University of Washington in any way.</p>
-        </div>
-
-        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
-          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">Can I rent just one bedroom?</h3>
-          <p style="margin:0;">We rent the entire house as a group rental only. Your group would lease the whole house together. Contact us for pricing.</p>
-        </div>
-
-        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
-          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">What is included?</h3>
-          <p style="margin:0;">Fully furnished common areas, monthly professional cleaning of all common areas, year-round yard maintenance, ample parking (tandem + two garages), and the large private backyard with decks and patios.</p>
-        </div>
-
-        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
-          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">What do I need to bring?</h3>
-          <p style="margin:0;">Only items for your own bedroom. Common areas are fully furnished. Every bedroom has its own private lock.</p>
-        </div>
-
+      <div style="margin-top:2rem; display:flex; flex-direction:column; gap:1rem;">
+        {[
+          {q: "Is UW Manor affiliated with the University of Washington?", a: "No. UW Manor is privately owned and has no affiliation with the University of Washington."},
+          {q: "Can I rent just one bedroom?", a: "We rent the entire house to one group only. Contact us for current pricing and availability."},
+          {q: "What is included in the rent?", a: "Fully furnished common areas, monthly professional cleaning, year-round yard maintenance, ample parking (tandem + two garages), and the large private backyard with decks and patios."},
+          {q: "What do I need to bring?", a: "Only items for your own bedroom. Common areas are fully furnished and every bedroom has its own private lock."},
+        ].map(item => (
+          <div style="background:#fff; padding:1.25rem 1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 1px 6px rgba(75,46,131,0.07);">
+            <h3 style="color:var(--uw-purple); font-size:1rem; margin-bottom:0.35rem;">{item.q}</h3>
+            <p style="margin:0; color:var(--text-mid); font-size:0.92rem;">{item.a}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <div class="cta-strip">
     <div class="container">
       <h2>Ready to Move Forward?</h2>
       <p>Apply online today — it only takes a few minutes.</p>
-      <a href={`${base}apply`} class="btn btn--gold">Apply Now</a>
+      <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
     </div>
   </div>
 

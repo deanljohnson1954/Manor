@@ -8,14 +8,11 @@ interface Props {
   canonicalUrl?: string;
 }
 
-const {
-  title,
-  description,
-  image = '/images/backyard2.jpg',
-  canonicalUrl,
-} = Astro.props;
+const { title, description, image = '/images/backyard2.jpg', canonicalUrl } = Astro.props;
 
-const base = import.meta.env.BASE_URL; // "/Manor/"
+// Normalize base: always no trailing slash  e.g. "/Manor"
+const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
 const siteTitle = 'UW Manor | Student Housing Seattle';
 const fullTitle = title === 'Home' ? siteTitle : `${title} | UW Manor`;
 const siteUrl = 'https://deanljohnson1954.github.io/Manor';
@@ -30,36 +27,27 @@ const path = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Primary SEO -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="UW Manor" />
-    <meta name="keywords" content="UW Manor, student housing Seattle, University of Washington housing, Greek Row rental, Seattle student apartments, 5048 17th Ave NE" />
-
-    <!-- Open Graph -->
+    <meta name="keywords" content="UW Manor, student housing Seattle, University of Washington housing, Greek Row rental, Seattle student apartments" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="UW Manor" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-
-    <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ApartmentComplex",
       "name": "UW Manor",
-      "description": "Student group rental house on Greek Row, Seattle — a short walk to the University of Washington.",
+      "description": "Student group rental house on Greek Row, Seattle.",
       "url": siteUrl,
       "address": {
         "@type": "PostalAddress",
@@ -72,80 +60,49 @@ const path = Astro.url.pathname;
       "telephone": "+1-206-858-2843",
       "email": "uwmanor@gmail.com"
     })} />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-
-    <!-- Fonts -->
+    <link rel="icon" type="image/svg+xml" href={`${b}/favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- ===== HEADER ===== -->
     <header class="site-header" role="banner">
       <div class="container">
-        <a class="site-logo" href={base} aria-label="UW Manor – Home">
+        <a class="site-logo" href={`${b}/`} aria-label="UW Manor – Home">
+          <span class="site-logo__mark"></span>
           <span class="site-logo__text">UW MANOR</span>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
         <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
           <ul>
-            <li>
-              <a href={base}
-                 aria-current={path === base || path === `${base.slice(0,-1)}` ? 'page' : undefined}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href={`${base}about`}
-                 aria-current={path.includes('/about') ? 'page' : undefined}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href={`${base}lease-process`}
-                 aria-current={path.includes('/lease-process') ? 'page' : undefined}>
-                Lease Process
-              </a>
-            </li>
-            <li>
-              <a href={`${base}apply`}
-                 aria-current={path.includes('/apply') ? 'page' : undefined}>
-                Apply Now
-              </a>
-            </li>
+            <li><a href={`${b}/`}          aria-current={path === `${b}/` || path === b ? 'page' : undefined}>Home</a></li>
+            <li><a href={`${b}/about`}     aria-current={path.includes('/about') ? 'page' : undefined}>About</a></li>
+            <li><a href={`${b}/lease-process`} aria-current={path.includes('/lease-process') ? 'page' : undefined}>Lease Process</a></li>
+            <li><a href={`${b}/apply`}     aria-current={path.includes('/apply') ? 'page' : undefined}>Apply Now</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main id="main-content">
-      <slot />
-    </main>
+    <main id="main-content"><slot /></main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="site-footer" role="contentinfo">
       <div class="container">
         <div class="footer-logo">UW MANOR</div>
         <nav class="footer-nav" aria-label="Footer navigation">
           <ul>
-            <li><a href={base}>Home</a></li>
-            <li><a href={`${base}about`}>About</a></li>
-            <li><a href={`${base}lease-process`}>Lease Process</a></li>
-            <li><a href={`${base}apply`}>Apply Now</a></li>
+            <li><a href={`${b}/`}>Home</a></li>
+            <li><a href={`${b}/about`}>About</a></li>
+            <li><a href={`${b}/lease-process`}>Lease Process</a></li>
+            <li><a href={`${b}/apply`}>Apply Now</a></li>
           </ul>
         </nav>
         <hr class="footer-divider" />
         <div class="footer-copy">
-          <p>
-            5048 17th Ave. NE, Seattle, WA 98105 &nbsp;|&nbsp;
+          <p>5048 17th Ave. NE, Seattle, WA 98105 &nbsp;|&nbsp;
             <a href="tel:+12068582843">206-858-2843</a> &nbsp;|&nbsp;
             <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
           </p>
@@ -155,7 +112,6 @@ const path = Astro.url.pathname;
       </div>
     </footer>
 
-    <!-- Mobile nav script -->
     <script>
       const toggle = document.getElementById('navToggle');
       const nav = document.getElementById('mainNav');

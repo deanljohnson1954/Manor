@@ -1,56 +1,49 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <BaseLayout
   title="Apply Now"
-  description="Apply to rent UW Manor online. Complete our student rental application form right in your browser and submit directly. Group rental near the University of Washington, Seattle."
+  description="Apply to rent UW Manor online. Complete our student rental application right in your browser and submit directly. Group rental near the University of Washington, Seattle."
   image="/images/kitchen-family-room.jpg"
 >
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="container">
       <h1>Rental Application</h1>
-      <p class="page-header__sub">Fill out and submit online — no printing required</p>
+      <span class="page-header__sub">Fill out and submit online — no printing required</span>
     </div>
   </div>
 
-  <!-- INTRO IMAGE STRIP -->
-  <div style="background: var(--bg-gray); padding: 2rem 0;">
+  <!-- IMAGE STRIP -->
+  <div style="background:var(--bg-gray); padding:1.5rem 0;">
     <div class="container">
-      <div class="photo-grid" style="grid-template-columns: repeat(4, 1fr);">
-        <img src={`${base}images/backyard2.jpg`} alt="UW Manor backyard" loading="lazy" />
-        <img src={`${base}images/kitchen-family-room.jpg`} alt="UW Manor kitchen" loading="lazy" />
-        <img src={`${base}images/back-decks.jpg`} alt="UW Manor decks" loading="lazy" />
-        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor bathroom" loading="lazy" />
+      <div class="photo-grid" style="grid-template-columns:repeat(4,1fr);">
+        <img src={`${b}/images/backyard2.jpg`}        alt="UW Manor backyard"  loading="lazy" />
+        <img src={`${b}/images/kitchen-family-room.jpg`} alt="Kitchen"          loading="lazy" />
+        <img src={`${b}/images/back-decks.jpg`}       alt="Decks"              loading="lazy" />
+        <img src={`${b}/images/main-bathroom.jpg`}    alt="Bathroom"           loading="lazy" />
       </div>
     </div>
   </div>
 
-  <!-- APPLICATION FORM -->
+  <!-- FORM -->
   <section class="section">
     <div class="container">
       <div class="apply-form">
 
         <div class="disclaimer">
           <strong>Group Rental:</strong> UW Manor is rented as an entire house to one group of students.
-          Each member of the group should submit a separate application.
-          Please contact us at <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or
-          <a href="tel:+12068582843">206-858-2843</a> before submitting to confirm availability and pricing.
+          Each member should submit a separate application. Please contact us at
+          <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or
+          <a href="tel:+12068582843">206-858-2843</a> to confirm availability before submitting.
         </div>
 
-        <form
-          id="rentalApplication"
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-          novalidate
-        >
+        <form id="rentalApplication" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <input type="hidden" name="_subject" value="UW Manor Rental Application" />
-          <input type="hidden" name="_next" value={`${base}apply-success`} />
+          <input type="hidden" name="_next" value={`${b}/apply-success`} />
 
-          <!-- APPLICANT INFO -->
           <div class="form-section">
             <h3>Applicant Information</h3>
             <div class="form-grid">
@@ -75,13 +68,12 @@ const base = import.meta.env.BASE_URL;
                 <input type="date" id="dob" name="date_of_birth" />
               </div>
               <div class="form-group">
-                <label for="studentId">UW Student ID (if applicable)</label>
-                <input type="text" id="studentId" name="student_id" placeholder="Optional" />
+                <label for="studentId">UW Student ID (optional)</label>
+                <input type="text" id="studentId" name="student_id" />
               </div>
             </div>
           </div>
 
-          <!-- CURRENT ADDRESS -->
           <div class="form-section">
             <h3>Current Address</h3>
             <div class="form-grid">
@@ -95,14 +87,14 @@ const base = import.meta.env.BASE_URL;
               </div>
               <div class="form-group">
                 <label for="currentState">State</label>
-                <input type="text" id="currentState" name="current_state" value="WA" autocomplete="address-level1" />
+                <input type="text" id="currentState" name="current_state" value="WA" />
               </div>
               <div class="form-group">
                 <label for="currentZip">ZIP Code</label>
                 <input type="text" id="currentZip" name="current_zip" autocomplete="postal-code" />
               </div>
               <div class="form-group">
-                <label for="currentLandlord">Current Landlord / Property Manager</label>
+                <label for="currentLandlord">Current Landlord</label>
                 <input type="text" id="currentLandlord" name="current_landlord" />
               </div>
               <div class="form-group">
@@ -111,7 +103,7 @@ const base = import.meta.env.BASE_URL;
               </div>
               <div class="form-group">
                 <label for="currentRentFrom">Residence From</label>
-                <input type="text" id="currentRentFrom" name="current_rent_from" placeholder="e.g. September 2023" />
+                <input type="text" id="currentRentFrom" name="current_rent_from" placeholder="e.g. Sept 2023" />
               </div>
               <div class="form-group">
                 <label for="currentRentTo">Residence To</label>
@@ -128,9 +120,8 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
 
-          <!-- PREVIOUS ADDRESS -->
           <div class="form-section">
-            <h3>Previous Address <span style="font-size:0.8rem; color:#888; font-weight:400;">(if less than 2 years at current address)</span></h3>
+            <h3>Previous Address <span style="font-size:0.78rem; color:#999; font-weight:400;">(if less than 2 years at current)</span></h3>
             <div class="form-grid">
               <div class="form-group form-group--full">
                 <label for="prevAddress">Street Address</label>
@@ -163,7 +154,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
 
-          <!-- EMPLOYMENT -->
           <div class="form-section">
             <h3>Employment &amp; Income</h3>
             <div class="form-grid">
@@ -185,14 +175,13 @@ const base = import.meta.env.BASE_URL;
               </div>
               <div class="form-group">
                 <label for="employedFrom">Employed / Enrolled Since</label>
-                <input type="text" id="employedFrom" name="employed_from" placeholder="e.g. September 2022" />
+                <input type="text" id="employedFrom" name="employed_from" placeholder="e.g. Sept 2022" />
               </div>
             </div>
           </div>
 
-          <!-- EMERGENCY CONTACT -->
           <div class="form-section">
-            <h3>Emergency Contact &amp; Co-Signer / Guarantor</h3>
+            <h3>Emergency Contact &amp; Co-Signer</h3>
             <div class="form-grid">
               <div class="form-group">
                 <label for="emergencyName">Emergency Contact Name</label>
@@ -200,7 +189,7 @@ const base = import.meta.env.BASE_URL;
               </div>
               <div class="form-group">
                 <label for="emergencyRelation">Relationship</label>
-                <input type="text" id="emergencyRelation" name="emergency_relation" placeholder="e.g. Parent, Guardian" />
+                <input type="text" id="emergencyRelation" name="emergency_relation" placeholder="Parent, Guardian…" />
               </div>
               <div class="form-group">
                 <label for="emergencyPhone">Emergency Contact Phone</label>
@@ -229,7 +218,6 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
 
-          <!-- RENTAL INFO -->
           <div class="form-section">
             <h3>Rental Information</h3>
             <div class="form-grid">
@@ -241,9 +229,9 @@ const base = import.meta.env.BASE_URL;
                 <label for="leaseLength">Desired Lease Length</label>
                 <select id="leaseLength" name="lease_length">
                   <option value="">Select…</option>
-                  <option value="9 months (academic year)">9 months (academic year)</option>
-                  <option value="12 months">12 months</option>
-                  <option value="Other">Other</option>
+                  <option>9 months (academic year)</option>
+                  <option>12 months</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div class="form-group">
@@ -254,22 +242,21 @@ const base = import.meta.env.BASE_URL;
                 <label for="howHeard">How did you hear about us?</label>
                 <select id="howHeard" name="how_heard">
                   <option value="">Select…</option>
-                  <option value="Internet search">Internet search</option>
-                  <option value="Referral from friend">Referral from friend</option>
-                  <option value="Previous tenant">Previous tenant</option>
-                  <option value="Social media">Social media</option>
-                  <option value="UW bulletin board">UW bulletin board</option>
-                  <option value="Other">Other</option>
+                  <option>Internet search</option>
+                  <option>Referral from friend</option>
+                  <option>Previous tenant</option>
+                  <option>Social media</option>
+                  <option>UW bulletin board</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div class="form-group form-group--full">
                 <label for="groupNotes">Tell us about your group</label>
-                <textarea id="groupNotes" name="group_notes" rows="4" placeholder="e.g. We are a group of 8 junior and senior students studying engineering and biology…"></textarea>
+                <textarea id="groupNotes" name="group_notes" rows="4" placeholder="Names, majors, year in school…"></textarea>
               </div>
             </div>
           </div>
 
-          <!-- BACKGROUND -->
           <div class="form-section">
             <h3>Background &amp; Disclosures</h3>
             <div class="form-grid form-grid--full">
@@ -277,65 +264,58 @@ const base = import.meta.env.BASE_URL;
                 <label for="evicted">Have you ever been evicted or asked to vacate?</label>
                 <select id="evicted" name="evicted">
                   <option value="">Select…</option>
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
+                  <option>No</option><option>Yes</option>
                 </select>
               </div>
               <div class="form-group" id="evictedDetails" style="display:none;">
-                <label for="evictedExplain">If yes, please explain</label>
+                <label for="evictedExplain">Please explain</label>
                 <textarea id="evictedExplain" name="evicted_explain" rows="3"></textarea>
               </div>
               <div class="form-group">
                 <label for="felony">Have you ever been convicted of a felony?</label>
                 <select id="felony" name="felony">
                   <option value="">Select…</option>
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
+                  <option>No</option><option>Yes</option>
                 </select>
               </div>
               <div class="form-group" id="felonyDetails" style="display:none;">
-                <label for="felonyExplain">If yes, please explain</label>
+                <label for="felonyExplain">Please explain</label>
                 <textarea id="felonyExplain" name="felony_explain" rows="3"></textarea>
               </div>
               <div class="form-group">
                 <label for="pets">Do you have pets?</label>
                 <select id="pets" name="pets">
                   <option value="">Select…</option>
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
+                  <option>No</option><option>Yes</option>
                 </select>
               </div>
               <div class="form-group" id="petsDetails" style="display:none;">
-                <label for="petsExplain">If yes, describe (type, breed, weight)</label>
+                <label for="petsExplain">Describe (type, breed, weight)</label>
                 <textarea id="petsExplain" name="pets_explain" rows="2"></textarea>
               </div>
               <div class="form-group">
                 <label for="smoke">Do you or any group members smoke?</label>
                 <select id="smoke" name="smoke">
                   <option value="">Select…</option>
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
+                  <option>No</option><option>Yes</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <!-- ADDITIONAL NOTES -->
           <div class="form-section">
             <h3>Additional Information</h3>
             <div class="form-group">
               <label for="additionalNotes">Anything else you'd like us to know?</label>
-              <textarea id="additionalNotes" name="additional_notes" rows="4" placeholder="Additional questions, comments, or information…"></textarea>
+              <textarea id="additionalNotes" name="additional_notes" rows="4"></textarea>
             </div>
           </div>
 
-          <!-- CERTIFICATION -->
           <div class="form-section">
             <h3>Certification</h3>
-            <p style="margin-bottom:1rem; font-size:0.95rem;">
-              I certify that all information provided is true and correct. I authorize UW Manor to
-              verify the information herein. Providing false information is grounds for denial or
-              termination of tenancy.
+            <p style="margin-bottom:1rem; font-size:0.92rem; color:var(--text-mid);">
+              I certify all information provided is true and correct, and authorize UW Manor to verify it.
+              Providing false information is grounds for denial or termination of tenancy.
             </p>
             <div class="form-grid">
               <div class="form-group">
@@ -348,22 +328,19 @@ const base = import.meta.env.BASE_URL;
               </div>
             </div>
             <div class="form-group mt-1">
-              <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer;">
+              <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer; font-size:0.88rem; text-transform:none; letter-spacing:0;">
                 <input type="checkbox" name="certify_true" required style="width:auto; margin-top:0.2rem; flex-shrink:0;" />
-                <span>I certify all information is accurate and authorize UW Manor to contact the references listed. <span style="color:red">*</span></span>
+                <span>I certify the above information is accurate and authorize UW Manor to contact the references listed. <span style="color:red">*</span></span>
               </label>
             </div>
           </div>
 
-          <!-- SUBMIT -->
           <div class="form-submit">
-            <button type="submit" class="btn btn--gold" style="font-size:1.1rem; padding:0.9rem 3rem;">Submit Application</button>
-            <p class="form-note">
-              Your application will be sent directly to <strong>uwmanor@gmail.com</strong>.
-              We typically respond within 1–2 business days.
-            </p>
+            <button type="submit" class="btn btn--gold" style="font-size:1.05rem; padding:0.85rem 3rem;">
+              Submit Application
+            </button>
+            <p class="form-note">Sent directly to <strong>uwmanor@gmail.com</strong>. We respond within 1–2 business days.</p>
           </div>
-
         </form>
       </div>
     </div>
@@ -371,16 +348,14 @@ const base = import.meta.env.BASE_URL;
 
   <script>
     function conditionalField(selectId: string, detailsId: string) {
-      const select = document.getElementById(selectId) as HTMLSelectElement;
-      const details = document.getElementById(detailsId) as HTMLElement;
-      if (!select || !details) return;
-      select.addEventListener('change', () => {
-        details.style.display = select.value === 'Yes' ? 'block' : 'none';
-      });
+      const sel = document.getElementById(selectId) as HTMLSelectElement;
+      const det = document.getElementById(detailsId) as HTMLElement;
+      if (!sel || !det) return;
+      sel.addEventListener('change', () => { det.style.display = sel.value === 'Yes' ? 'block' : 'none'; });
     }
     conditionalField('evicted', 'evictedDetails');
-    conditionalField('felony', 'felonyDetails');
-    conditionalField('pets', 'petsDetails');
+    conditionalField('felony',  'felonyDetails');
+    conditionalField('pets',    'petsDetails');
   </script>
 
 </BaseLayout>

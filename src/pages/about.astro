@@ -1,23 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
+const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 ---
 
 <BaseLayout
   title="About"
-  description="UW Manor is located at 5048 17th Ave. NE, Seattle — one block from Greek Row and a 10-minute walk to UW's main campus. Learn about our amenities, location, and what makes UW Manor special."
+  description="UW Manor – one block from Greek Row and a 10-minute walk to UW campus. Five bathrooms, large fenced backyard, furnished common areas, parking, and monthly cleaning."
   image="/images/back-decks.jpg"
 >
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="container">
       <h1>About UW Manor</h1>
-      <p class="page-header__sub">5048 17th Ave. NE · Seattle, WA 98105 · One block from Greek Row</p>
+      <span class="page-header__sub">5048 17th Ave. NE · Seattle, WA · One block from Greek Row</span>
     </div>
   </div>
 
-  <!-- LOCATION + INTRO -->
+  <!-- LOCATION -->
   <section class="section">
     <div class="container">
       <div class="two-col">
@@ -26,72 +25,59 @@ const base = import.meta.env.BASE_URL;
           <div class="gold-bar" style="margin-left:0;"></div>
           <p>
             UW Manor is located at
-            <strong>
-              <a href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105" target="_blank" rel="noopener">
-                5048 17th Ave. NE, Seattle, WA 98105
-              </a>
-            </strong>
-            — just one block from Greek Row and a ten-minute walk to the main entrance of the
-            University of Washington campus.
+            <a href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105" target="_blank" rel="noopener">
+              <strong>5048 17th Ave. NE, Seattle, WA 98105</strong>
+            </a>
+            — one block from Greek Row and a ten-minute walk to the University of Washington main campus.
           </p>
           <p>
-            For many years, UW Manor was a private residence before being converted to student
-            housing. In addition to its premier location, it offers amenities simply not available
-            at most rental properties in the area.
+            Originally a private residence, UW Manor was converted to student housing and now offers
+            amenities rarely found in the area.
           </p>
-          <ul style="margin: 0.5rem 0 1.25rem 1.5rem; line-height: 2.1;">
-            <li>Large upper <em>and</em> lower decks</li>
+          <ul style="margin:0.5rem 0 1.25rem 1.5rem; line-height:2.1;">
+            <li>Large upper and lower decks</li>
             <li>Massive fully fenced backyard with artificial turf</li>
             <li>Five elegant bathrooms</li>
-            <li>Fully furnished common areas</li>
+            <li>Fully furnished living and dining rooms</li>
             <li>2–3 car tandem parking + two single-car garages</li>
-            <li>Monthly professional cleaning</li>
+            <li>Monthly professional cleaning of common areas</li>
             <li>Year-round yard maintenance</li>
           </ul>
-          <p>
-            <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a><br />
-            <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+          <p style="font-size:0.9rem;">
+            <a href="tel:+12068582843">206-858-2843</a> &nbsp;·&nbsp;
+            <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
           </p>
         </div>
         <div style="display:flex; flex-direction:column; gap:1rem;">
-          <img
-            src={`${base}images/house-exterior.jpg`}
-            alt="UW Manor house exterior"
-            style="border-radius:8px; border:3px solid var(--uw-gold-light);"
-            loading="lazy"
-          />
+          <img src={`${b}/images/house-exterior.jpg`} alt="UW Manor house exterior"
+            style="border-radius:8px; border:3px solid var(--uw-gold-light); width:100%;" loading="lazy" />
           <div class="address-block">
-            <h3>Contact &amp; Address</h3>
-            <p>5048 17th Ave. NE<br />Seattle, Washington 98105</p>
-            <p>
-              <a href="tel:+12068582843">206-858-2843</a><br />
-              <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
-            </p>
-            <a
-              href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105"
-              target="_blank"
-              rel="noopener"
-              class="btn btn--gold"
-              style="margin-top:0.75rem; display:inline-block;"
-            >View on Google Maps</a>
+            <h3>Get in Touch</h3>
+            <p>5048 17th Ave. NE, Seattle, WA 98105</p>
+            <p><a href="tel:+12068582843">206-858-2843</a></p>
+            <p><a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a></p>
+            <a href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105"
+              target="_blank" rel="noopener" class="btn btn--gold" style="margin-top:0.75rem; display:inline-block;">
+              View on Google Maps
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OUTDOOR SPACES -->
+  <!-- OUTDOOR -->
   <section class="section section--gray">
     <div class="container">
       <h2 class="section-heading">Outdoor Spaces</h2>
       <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src={`${base}images/backyard2.jpg`} alt="UW Manor backyard with artificial turf lawn" loading="lazy" />
-        <img src={`${base}images/backyard-turf.jpg`} alt="UW Manor backyard area" loading="lazy" />
-        <img src={`${base}images/back-decks.jpg`} alt="UW Manor back decks" loading="lazy" />
-        <img src={`${base}images/back-patio.jpg`} alt="UW Manor back patio" loading="lazy" />
-        <img src={`${base}images/deck2.jpg`} alt="UW Manor deck" loading="lazy" />
-        <img src={`${base}images/house-exterior.jpg`} alt="UW Manor house exterior" loading="lazy" />
+        <img src={`${b}/images/backyard2.jpg`}      alt="Backyard with artificial turf"  loading="lazy" />
+        <img src={`${b}/images/backyard-turf.jpg`}  alt="Backyard area"                  loading="lazy" />
+        <img src={`${b}/images/back-decks.jpg`}     alt="Back decks"                     loading="lazy" />
+        <img src={`${b}/images/back-patio.jpg`}     alt="Back patio"                     loading="lazy" />
+        <img src={`${b}/images/deck2.jpg`}          alt="Deck"                           loading="lazy" />
+        <img src={`${b}/images/house-exterior.jpg`} alt="House exterior"                 loading="lazy" />
       </div>
     </div>
   </section>
@@ -101,14 +87,14 @@ const base = import.meta.env.BASE_URL;
     <div class="container">
       <h2 class="section-heading">Five Elegant Bathrooms</h2>
       <div class="gold-bar"></div>
-      <p class="text-center" style="color:var(--text-light); max-width:620px; margin:0 auto 1.5rem;">
-        Five beautifully appointed bathrooms — a true luxury in student housing.
+      <p class="text-center" style="color:var(--text-light); max-width:580px; margin:0 auto 1.5rem;">
+        A rare luxury in student housing — five beautifully appointed bathrooms.
       </p>
       <div class="photo-panorama">
-        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor main bathroom" loading="lazy" />
-        <img src={`${base}images/bathroom.jpg`} alt="UW Manor bathroom" loading="lazy" />
-        <img src={`${base}images/bath3.jpg`} alt="UW Manor third bathroom" loading="lazy" />
-        <img src={`${base}images/newbathroom2.jpg`} alt="UW Manor updated bathroom" loading="lazy" />
+        <img src={`${b}/images/main-bathroom.jpg`}  alt="Main bathroom"    loading="lazy" />
+        <img src={`${b}/images/bathroom.jpg`}        alt="Bathroom"         loading="lazy" />
+        <img src={`${b}/images/bath3.jpg`}           alt="Third bathroom"   loading="lazy" />
+        <img src={`${b}/images/newbathroom2.jpg`}    alt="Updated bathroom" loading="lazy" />
       </div>
     </div>
   </section>
@@ -119,22 +105,21 @@ const base = import.meta.env.BASE_URL;
       <h2 class="section-heading">Common Areas &amp; Kitchen</h2>
       <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src={`${base}images/kitchen-family-room.jpg`} alt="UW Manor kitchen and family room" loading="lazy" />
-        <img src={`${base}images/dining-room.jpg`} alt="UW Manor dining room" loading="lazy" />
-        <img src={`${base}images/bedroom-panorama.jpg`} alt="UW Manor bedroom" loading="lazy" />
-        <img src={`${base}images/laundry.jpg`} alt="UW Manor laundry room" loading="lazy" />
+        <img src={`${b}/images/kitchen-family-room.jpg`} alt="Kitchen and family room" loading="lazy" />
+        <img src={`${b}/images/dining-room.jpg`}         alt="Dining room"             loading="lazy" />
+        <img src={`${b}/images/bedroom-panorama.jpg`}    alt="Bedroom"                 loading="lazy" />
+        <img src={`${b}/images/laundry.jpg`}             alt="Laundry room"            loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <div class="cta-strip">
     <div class="container">
       <h2>Interested in Renting UW Manor?</h2>
-      <p>Contact us today or fill out our online application to get started.</p>
-      <a href={`${base}apply`} class="btn btn--gold">Apply Now</a>
+      <p>Contact us or fill out our online application to get started.</p>
+      <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
       &nbsp;&nbsp;
-      <a href={`${base}lease-process`} class="btn btn--outline-white">See the Lease Process</a>
+      <a href={`${b}/lease-process`} class="btn btn--outline-white">See the Lease Process</a>
     </div>
   </div>
 
