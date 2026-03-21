@@ -66,32 +66,45 @@ p {
 
 /* ===== HEADER ===== */
 .site-header {
-  background: #000;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 3px 16px rgba(0,0,0,0.5);
+  border-bottom: 3px solid #336ca6;
 }
 
 .site-header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .site-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #fff;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #336ca6;
+  border-radius: 2px;
 }
 
 .site-logo:hover {
-  color: #ddd;
+  color: #c8dff0;
   text-decoration: none;
 }
 
@@ -99,26 +112,52 @@ p {
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .main-nav a {
-  color: #fff;
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s, color 0.2s;
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  display: block;
 }
 
-.main-nav a:hover,
+.main-nav a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  text-decoration: none;
+}
+
 .main-nav a[aria-current="page"] {
   color: #fff;
-  border-bottom-color: #fff;
+  background: rgba(51,108,166,0.6);
   text-decoration: none;
+}
+
+/* "Apply Now" nav link gets a prominent pill style */
+.main-nav li:last-child a {
+  background: #336ca6;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.45rem 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.main-nav li:last-child a:hover {
+  background: #2558a0;
+  color: #fff;
+}
+
+.main-nav li:last-child a[aria-current="page"] {
+  background: #1e4480;
 }
 
 /* Mobile hamburger */
@@ -129,7 +168,13 @@ p {
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
-  padding: 0.25rem;
+  padding: 0.35rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.nav-toggle:hover {
+  background: rgba(255,255,255,0.1);
 }
 
 .nav-toggle span {
@@ -495,41 +540,58 @@ textarea {
 
 /* ===== FOOTER ===== */
 .site-footer {
-  background: #000;
+  background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
   color: #fff;
-  padding: 2rem 0;
+  padding: 2.5rem 0 1.5rem;
   text-align: center;
+  border-top: 3px solid #336ca6;
 }
 
 .site-footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .footer-nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 0.25rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .footer-nav a {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
 .footer-nav a:hover {
-  color: #eded09;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
   text-decoration: none;
+}
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: #336ca6;
+  border: none;
+  margin: 0;
 }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
 }
 
 /* ===== DISCLAIMER ===== */
@@ -561,7 +623,8 @@ textarea {
     top: 100%;
     left: 0;
     right: 0;
-    background: #111;
+    background: #1e1e1e;
+    border-top: 1px solid rgba(255,255,255,0.1);
     padding: 1rem 1.5rem 1.5rem;
   }
 
