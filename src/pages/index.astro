@@ -5,31 +5,30 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
 <BaseLayout
   title="Home"
-  description="UW Manor – premium student group rental on Greek Row, just steps from the University of Washington. Fully furnished common areas, 5 bathrooms, large backyard, decks, and parking."
-  image="/images/backyard2.jpg"
+  description="UW Manor – student group rental near the University of Washington. Fully furnished common areas, 5 bathrooms, large backyard, decks, and parking. Seattle, WA."
+  image="/images/house-exterior.jpg"
 >
 
   <!-- HERO -->
   <section class="hero" aria-label="UW Manor hero">
-    <img src={`${b}/images/backyard2.jpg`} alt="UW Manor backyard" class="hero__bg" fetchpriority="high" />
+    <img src={`${b}/images/house-exterior.jpg`} alt="UW Manor exterior" class="hero__bg" fetchpriority="high" />
     <div class="hero__content">
-      <div class="hero__eyebrow">Greek Row · Seattle, WA</div>
       <h1 class="hero__title">UW MANOR</h1>
-      <p class="hero__subtitle">Premier Student Group Rental — One Block from Campus</p>
+      <p class="hero__subtitle">Student Group Rental — One Block from Campus</p>
       <p class="hero__disclaimer">Not owned by or affiliated with the University of Washington</p>
       <div class="hero__actions">
         <a href={`${b}/about`} class="btn btn--gold">See the Property</a>
-        <a href={`${b}/lease-process`} class="btn btn--outline-white">Lease Process</a>
+        <a href={`${b}/apply`} class="btn btn--outline-white">Apply Now</a>
       </div>
     </div>
   </section>
 
-  <!-- GOLD ADDRESS STRIP -->
-  <div style="background: var(--uw-gold); padding: 0.6rem 1.5rem; text-align: center;">
-    <p style="margin:0; font-weight:700; color: var(--uw-purple); font-size:0.88rem; letter-spacing:0.02em;">
+  <!-- ADDRESS STRIP -->
+  <div style="background: var(--uw-purple); padding: 0.65rem 1.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <p style="margin:0; font-weight:600; color: rgba(255,255,255,0.88); font-size:0.86rem; letter-spacing:0.02em;">
       5048 17th Ave. NE, Seattle, WA 98105 &nbsp;|&nbsp;
-      <a href="tel:+12068582843" style="color:var(--uw-purple);">206-858-2843</a> &nbsp;|&nbsp;
-      <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-purple);">uwmanor@gmail.com</a>
+      <a href="tel:+12068582843" style="color:#fff;">206-858-2843</a> &nbsp;|&nbsp;
+      <a href="mailto:uwmanor@gmail.com" style="color:#fff;">uwmanor@gmail.com</a>
     </p>
   </div>
 
@@ -41,8 +40,8 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
           <h2 style="color:var(--uw-purple);">A Home Away From Home</h2>
           <div class="gold-bar" style="margin-left:0;"></div>
           <p>
-            UW Manor sits just one block from Greek Row — a ten-minute walk to the main entrance of the
-            University of Washington. We rent the entire house as a <strong>group rental</strong>,
+            UW Manor sits just one block from the University of Washington campus.
+            We rent the entire house as a <strong>group rental</strong>,
             perfect for students who want to live together in comfort.
           </p>
           <p>
@@ -57,7 +56,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
           <a href={`${b}/about`} class="btn btn--purple" style="margin-top:0.5rem;">Explore the Property</a>
         </div>
         <div>
-          <img src={`${b}/images/kitchen-family-room.jpg`} alt="UW Manor kitchen and family room"
+          <img src={`${b}/images/back-decks.jpg`} alt="UW Manor back decks"
             style="border-radius:8px; border:3px solid var(--uw-gold-light); width:100%;" />
         </div>
       </div>
@@ -110,15 +109,42 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
       <h2 class="section-heading">A Look Inside</h2>
       <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src={`${b}/images/backyard2.jpg`}        alt="UW Manor backyard"          loading="lazy" />
         <img src={`${b}/images/back-decks.jpg`}       alt="UW Manor back decks"        loading="lazy" />
+        <img src={`${b}/images/back-patio.jpg`}       alt="UW Manor back patio"        loading="lazy" />
         <img src={`${b}/images/dining-room.jpg`}      alt="UW Manor dining room"       loading="lazy" />
         <img src={`${b}/images/main-bathroom.jpg`}    alt="UW Manor main bathroom"     loading="lazy" />
-        <img src={`${b}/images/back-patio.jpg`}       alt="UW Manor back patio"        loading="lazy" />
+        <img src={`${b}/images/bathroom.jpg`}         alt="UW Manor bathroom"          loading="lazy" />
         <img src={`${b}/images/house-exterior.jpg`}   alt="UW Manor house exterior"    loading="lazy" />
       </div>
       <div class="text-center mt-2">
         <a href={`${b}/about`} class="btn btn--purple">View All Photos &amp; Amenities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY CALLOUT -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <img src={`${b}/images/bedroom-panorama.jpg`} alt="UW Manor bedroom"
+            style="border-radius:8px;" loading="lazy" />
+        </div>
+        <div>
+          <h2 style="color:var(--uw-purple);">Ready to Apply?</h2>
+          <div class="gold-bar" style="margin-left:0;"></div>
+          <p>
+            UW Manor rents the entire house as a <strong>group rental</strong>.
+            Fill out our online application right in your browser — no printing or scanning needed.
+          </p>
+          <ul style="margin:0.75rem 0 1.5rem 1.5rem; line-height:2.1;">
+            <li>Contact us to discuss pricing &amp; availability</li>
+            <li>Complete the online application</li>
+            <li>Sign the lease &amp; make required deposits</li>
+            <li>Move in — keys waiting for you</li>
+          </ul>
+          <a href={`${b}/apply`} class="btn btn--gold">Fill Out Application</a>
+        </div>
       </div>
     </div>
   </section>
@@ -128,11 +154,11 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
     <div class="container">
       <h2>Questions? We'd Love to Hear From You</h2>
       <p>
-        <a href="tel:+12068582843" style="color:var(--uw-gold); font-weight:700;">206-858-2843</a>
+        <a href="tel:+12068582843" style="color:var(--uw-gold-light); font-weight:700;">206-858-2843</a>
         &nbsp;·&nbsp;
-        <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold); font-weight:700;">uwmanor@gmail.com</a>
+        <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold-light); font-weight:700;">uwmanor@gmail.com</a>
       </p>
-      <a href={`${b}/lease-process`} class="btn btn--gold">Learn About the Lease Process</a>
+      <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
     </div>
   </div>
 

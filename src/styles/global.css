@@ -1,16 +1,16 @@
-/* ===== UW COLOR PALETTE ===== */
+/* ===== PROFESSIONAL COLOR PALETTE ===== */
 :root {
-  --uw-purple:      #4b2e83;
-  --uw-purple-dark: #32006e;
-  --uw-purple-mid:  #3b236a;
-  --uw-gold:        #b7a57a;
-  --uw-gold-dark:   #85754d;
-  --uw-gold-light:  #e8e3d5;
+  --uw-purple:      #1d2d44;   /* deep navy (header, footer, dark backgrounds) */
+  --uw-purple-dark: #121f30;
+  --uw-purple-mid:  #18253c;
+  --uw-gold:        #3a7bd5;   /* clean blue (accent, buttons, bars) */
+  --uw-gold-dark:   #2c5fa8;
+  --uw-gold-light:  #e8f0fb;   /* light blue tint */
   --text-dark:      #1a1a1a;
   --text-mid:       #444;
   --text-light:     #666;
   --border:         #ddd;
-  --bg-gray:        #f6f4f9;   /* light purple tint */
+  --bg-gray:        #f5f6f8;
 }
 
 /* ===== RESET & BASE ===== */
@@ -152,19 +152,18 @@ p { margin-bottom: 1rem; }
   text-decoration: none;
 }
 
-/* Apply Now — pill button */
+/* Apply — filled button style in nav */
 .main-nav li:last-child a {
   background: var(--uw-gold);
-  color: var(--uw-purple);
-  border-radius: 20px;
-  padding: 0.45rem 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.45rem 1.1rem;
+  font-weight: 700;
 }
 
 .main-nav li:last-child a:hover {
-  background: var(--uw-gold-light);
-  color: var(--uw-purple-dark);
+  background: var(--uw-gold-dark);
+  color: #fff;
   text-decoration: none;
 }
 
@@ -199,7 +198,7 @@ p { margin-bottom: 1rem; }
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  height: 260px;
+  height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,8 +213,8 @@ p { margin-bottom: 1rem; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 60%;
-  opacity: 0.38;
+  object-position: center 50%;
+  opacity: 0.5;
 }
 
 .hero__content {

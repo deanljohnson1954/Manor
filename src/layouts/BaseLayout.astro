@@ -81,6 +81,7 @@ const path = Astro.url.pathname;
             <li><a href={`${b}/`}          aria-current={path === `${b}/` || path === b ? 'page' : undefined}>Home</a></li>
             <li><a href={`${b}/about`}     aria-current={path.includes('/about') ? 'page' : undefined}>About</a></li>
             <li><a href={`${b}/lease-process`} aria-current={path.includes('/lease-process') ? 'page' : undefined}>Lease Process</a></li>
+            <li><a href={`${b}/apply`}     aria-current={path.includes('/apply') ? 'page' : undefined}>Apply</a></li>
           </ul>
         </nav>
       </div>
@@ -96,6 +97,7 @@ const path = Astro.url.pathname;
             <li><a href={`${b}/`}>Home</a></li>
             <li><a href={`${b}/about`}>About</a></li>
             <li><a href={`${b}/lease-process`}>Lease Process</a></li>
+            <li><a href={`${b}/apply`}>Apply</a></li>
           </ul>
         </nav>
         <hr class="footer-divider" />
