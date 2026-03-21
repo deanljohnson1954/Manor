@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -9,125 +10,155 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 
   <!-- HERO -->
-  <section class="hero" aria-label="UW Manor hero image">
+  <section class="hero" aria-label="UW Manor hero">
     <img
-      src="/images/backyard2.jpg"
+      src={`${base}images/backyard2.jpg`}
       alt="UW Manor backyard with artificial turf lawn and decks"
       class="hero__bg"
       fetchpriority="high"
     />
     <div class="hero__content">
+      <div class="hero__eyebrow">Greek Row · Seattle, WA</div>
       <h1 class="hero__title">UW MANOR</h1>
-      <p class="hero__subtitle">Premier Student Housing on Greek Row — Seattle, WA</p>
+      <p class="hero__subtitle">Premier Student Group Rental — One Block from Campus</p>
       <p class="hero__disclaimer">Not owned by or affiliated with the University of Washington</p>
-      <div class="mt-2">
-        <a href="/apply" class="btn btn--white">Apply Now</a>
-        &nbsp;&nbsp;
-        <a href="/about" class="btn btn--white" style="background: transparent; border: 2px solid #fff; color: #fff;">Learn More</a>
+      <div class="hero__actions">
+        <a href={`${base}apply`} class="btn btn--gold">Apply Now</a>
+        <a href={`${base}about`} class="btn btn--outline-white">See the Property</a>
       </div>
     </div>
   </section>
 
-  <!-- DISCLAIMER + ADDRESS -->
-  <section class="section section--gray">
-    <div class="container text-center">
-      <h2>5048 17th Ave. NE, Seattle, Washington 98105</h2>
-      <p>
-        On Greek Row, just one block from campus — a gracious boarding home ideal for groups of students.<br />
-        <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a> &nbsp;|&nbsp;
-        <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
-      </p>
-      <p class="mt-1" style="font-size: 0.9rem; color: #666;">
-        For our other property, visit <a href="https://www.uwcourt.com" target="_blank" rel="noopener">www.uwcourt.com</a>
-      </p>
+  <!-- ADDRESS STRIP -->
+  <div style="background: var(--uw-gold); padding: 0.75rem 1.5rem; text-align: center;">
+    <p style="margin:0; font-weight:700; color: var(--uw-purple); font-size:0.95rem;">
+      📍 5048 17th Ave. NE, Seattle, WA 98105 &nbsp;|&nbsp;
+      <a href="tel:+12068582843" style="color:var(--uw-purple);">206-858-2843</a> &nbsp;|&nbsp;
+      <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-purple);">uwmanor@gmail.com</a>
+    </p>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2 style="color: var(--uw-purple);">A Home Away From Home</h2>
+          <div class="gold-bar" style="margin-left:0;"></div>
+          <p>
+            UW Manor is located just one block from Greek Row and a short ten-minute walk to the
+            main entrance of the University of Washington. We rent the entire house as a
+            <strong>group rental</strong> — perfect for a cohesive group of students who want to
+            live together in comfort.
+          </p>
+          <p>
+            The living room and dining room are fully furnished. The only items you need to bring
+            are for your own bedroom. Every bedroom has its own lock.
+          </p>
+          <p>
+            <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a><br />
+            <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a><br />
+            <strong>Our other property:</strong> <a href="https://www.uwcourt.com" target="_blank" rel="noopener">www.uwcourt.com</a>
+          </p>
+          <a href={`${base}about`} class="btn btn--purple">Explore the Property</a>
+        </div>
+        <div>
+          <img
+            src={`${base}images/kitchen-family-room.jpg`}
+            alt="UW Manor kitchen and family room"
+            style="border-radius:8px; border:3px solid var(--uw-gold-light);"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="section">
+  <section class="section section--gray">
     <div class="container">
-      <h2 class="text-center">We Handle All the Details</h2>
-      <p class="text-center" style="color: #666; max-width: 640px; margin: 0 auto 1rem;">
-        Our goal is to make living at the UW as easy as possible.
-        The only items you need to bring are for your own bedroom — everything else is taken care of.
-      </p>
+      <h2 class="section-heading">We Handle All the Details</h2>
+      <div class="gold-bar"></div>
       <div class="features">
         <div class="feature-card">
           <div class="feature-card__icon">🛋️</div>
           <h3>Fully Furnished Common Areas</h3>
-          <p>The living room and dining room are fully furnished and ready to enjoy from day one.</p>
+          <p>Living room and dining room fully furnished and ready from day one.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card__icon">🧹</div>
           <h3>Monthly Professional Cleaning</h3>
-          <p>A professional cleaner visits once a month to clean all common areas — keeping the house spotless.</p>
+          <p>A professional cleaner visits monthly to keep all common areas spotless.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card__icon">🌿</div>
           <h3>Yard Maintenance Included</h3>
-          <p>Year-round yard care maintains the beautiful front yard and enclosed private backyard.</p>
+          <p>Year-round care for the front yard and enclosed private backyard.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card__icon">🔑</div>
           <h3>Private Bedroom Locks</h3>
-          <p>Every bedroom comes with its own lock for your privacy and peace of mind.</p>
+          <p>Every bedroom has its own lock for privacy and peace of mind.</p>
         </div>
         <div class="feature-card">
           <div class="feature-card__icon">🚗</div>
           <h3>Ample Parking</h3>
-          <p>2–3 car tandem parking plus two single-car garages — no street parking stress.</p>
+          <p>2–3 car tandem parking plus two single-car garages.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon">🏡</div>
-          <h3>Group Rental</h3>
-          <p>We rent the entire house to a group. Perfect for a cohesive group of students living together.</p>
+          <div class="feature-card__icon">🛁</div>
+          <h3>Five Elegant Bathrooms</h3>
+          <p>A true luxury in student housing — no waiting in line.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PHOTO HIGHLIGHTS -->
-  <section class="section section--gray">
+  <section class="section">
     <div class="container">
-      <h2 class="text-center">A Look Inside</h2>
+      <h2 class="section-heading">A Look Inside</h2>
+      <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src="/images/kitchen-family-room.jpg" alt="UW Manor kitchen and family room" loading="lazy" />
-        <img src="/images/backyard2.jpg" alt="UW Manor backyard with artificial turf" loading="lazy" />
-        <img src="/images/dining-room.jpg" alt="UW Manor dining room" loading="lazy" />
-        <img src="/images/back-decks.jpg" alt="UW Manor back decks" loading="lazy" />
-        <img src="/images/main-bathroom.jpg" alt="UW Manor main bathroom" loading="lazy" />
-        <img src="/images/house-exterior.jpg" alt="UW Manor exterior" loading="lazy" />
+        <img src={`${base}images/backyard2.jpg`} alt="UW Manor backyard with artificial turf" loading="lazy" />
+        <img src={`${base}images/back-decks.jpg`} alt="UW Manor back decks" loading="lazy" />
+        <img src={`${base}images/dining-room.jpg`} alt="UW Manor dining room" loading="lazy" />
+        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor main bathroom" loading="lazy" />
+        <img src={`${base}images/back-patio.jpg`} alt="UW Manor back patio" loading="lazy" />
+        <img src={`${base}images/house-exterior.jpg`} alt="UW Manor house exterior" loading="lazy" />
       </div>
       <div class="text-center mt-2">
-        <a href="/about" class="btn btn--primary">See All Photos &amp; Amenities</a>
+        <a href={`${base}about`} class="btn btn--purple">View All Photos & Amenities</a>
       </div>
     </div>
   </section>
 
   <!-- HOW TO APPLY -->
-  <section class="section">
+  <section class="section section--gray">
     <div class="container">
       <div class="two-col">
         <div>
-          <h2>Ready to Apply?</h2>
+          <img
+            src={`${base}images/cherry-blossoms.png`}
+            alt="Cherry blossoms near the University of Washington"
+            style="border-radius:8px;"
+            loading="lazy"
+          />
+        </div>
+        <div>
+          <h2 style="color: var(--uw-purple);">Ready to Apply?</h2>
+          <div class="gold-bar" style="margin-left:0;"></div>
           <p>
-            UW Manor rents the entire house as a <strong>group rental</strong>. If you have a group of students
-            looking for a premier location close to campus, we want to hear from you.
-          </p>
-          <p>
-            Complete our online application — fill it out right in your browser and submit it directly to us.
+            UW Manor rents the entire house as a <strong>group rental</strong>.
+            Complete our online application — fill it out in your browser and submit directly.
             No printing or scanning required.
           </p>
-          <ul style="margin: 1rem 0 1.5rem 1.5rem; line-height: 2;">
-            <li>Contact us to discuss pricing and availability</li>
+          <ul style="margin: 0.75rem 0 1.5rem 1.5rem; line-height: 2.1;">
+            <li>Contact us to discuss pricing &amp; availability</li>
             <li>Complete the online application</li>
             <li>Sign the lease &amp; make required deposits</li>
             <li>Move in — your keys will be waiting!</li>
           </ul>
-          <a href="/apply" class="btn btn--primary">Fill Out Application</a>
-        </div>
-        <div>
-          <img src="/images/cherry-blossoms.png" alt="Cherry blossoms near the University of Washington" loading="lazy" style="border-radius: 6px;" />
+          <a href={`${base}apply`} class="btn btn--gold">Fill Out Application</a>
         </div>
       </div>
     </div>
@@ -137,10 +168,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="cta-strip">
     <div class="container">
       <h2>Questions? We'd Love to Hear From You</h2>
-      <p>Call us at <a href="tel:+12068582843" style="color:#fff; font-weight:700;">206-858-2843</a> or email
-        <a href="mailto:uwmanor@gmail.com" style="color:#fff; font-weight:700;">uwmanor@gmail.com</a>
+      <p>
+        Call <a href="tel:+12068582843" style="color:var(--uw-gold); font-weight:700;">206-858-2843</a>
+        &nbsp;or email&nbsp;
+        <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold); font-weight:700;">uwmanor@gmail.com</a>
       </p>
-      <a href="/apply" class="btn btn--white">Apply Now</a>
+      <a href={`${base}apply`} class="btn btn--gold">Apply Now</a>
     </div>
   </div>
 

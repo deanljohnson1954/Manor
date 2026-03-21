@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -12,118 +13,125 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="page-header">
     <div class="container">
       <h1>Lease Process</h1>
+      <p class="page-header__sub">Three simple steps to make UW Manor your new home</p>
     </div>
   </div>
 
-  <!-- INTRO -->
+  <!-- INTRO + HERO IMAGE -->
   <section class="section">
-    <div class="container" style="max-width: 800px;">
-      <p class="text-center" style="font-size: 1.1rem; color: #555; margin-bottom: 2.5rem;">
-        We rent UW Manor as a <strong>group rental</strong> — the entire house is leased to one group of students.
-        The process is straightforward and we guide you every step of the way.
-      </p>
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2 style="color:var(--uw-purple);">How It Works</h2>
+          <div class="gold-bar" style="margin-left:0;"></div>
+          <p style="font-size:1.05rem; color:var(--text-mid);">
+            We rent UW Manor as a <strong>group rental</strong> — the entire house is leased to
+            one group of students. The process is straightforward and we guide you every step of the way.
+          </p>
+          <p>
+            <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a><br />
+            <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+          </p>
+          <a href={`${base}apply`} class="btn btn--gold" style="margin-top:0.5rem;">Start Your Application</a>
+        </div>
+        <div>
+          <img
+            src={`${base}images/dining-room.jpg`}
+            alt="UW Manor dining room"
+            style="border-radius:8px; border:3px solid var(--uw-gold-light);"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- STEPS -->
-      <ol class="steps" style="list-style: none;">
+  <!-- STEPS -->
+  <section class="section section--gray">
+    <div class="container" style="max-width:800px;">
+      <h2 class="section-heading">The Three Steps</h2>
+      <div class="gold-bar"></div>
 
+      <ol class="steps">
         <li class="step">
           <div class="step__number" aria-hidden="true">1</div>
           <div class="step__body">
             <h3>Contact Us &amp; Submit Your Application</h3>
             <p>
-              The first step is to get in touch. Email us at
-              <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or call
-              <a href="tel:+12068582843">206-858-2843</a> to express your interest.
-              We will provide you with pricing and availability details.
+              Email <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or call
+              <a href="tel:+12068582843">206-858-2843</a> to express interest and get pricing details.
+              Then complete our <a href={`${base}apply`}><strong>online rental application</strong></a> —
+              fill it out right in your browser and submit directly. No printing required.
             </p>
-            <p>
-              Then, complete our <a href="/apply"><strong>online rental application</strong></a>.
-              Fill it out right in your browser — no printing or scanning required.
-              Submit it directly and we'll be in touch promptly.
-            </p>
-            <div class="mt-1">
-              <a href="/apply" class="btn btn--primary">Fill Out Application Online</a>
-            </div>
+            <a href={`${base}apply`} class="btn btn--purple" style="margin-top:0.5rem;">Fill Out Application</a>
           </div>
         </li>
 
-        <li class="step" style="margin-top: 2rem;">
+        <li class="step" style="margin-top:2rem;">
           <div class="step__number" aria-hidden="true">2</div>
           <div class="step__body">
             <h3>Complete Lease &amp; Make Required Deposits</h3>
             <p>
-              Once your group is approved to rent UW Manor, you will be required to complete a
-              lease agreement and make certain deposits.
-              We will walk you through this process in detail once your group has been selected.
+              Once your group is approved, you'll complete a lease agreement and make the required deposits.
+              We'll walk you through every detail of this process once your group has been selected.
             </p>
           </div>
         </li>
 
-        <li class="step" style="margin-top: 2rem;">
+        <li class="step" style="margin-top:2rem;">
           <div class="step__number" aria-hidden="true">3</div>
           <div class="step__body">
-            <h3>Easy Move-In Process</h3>
+            <h3>Easy Move-In</h3>
             <p>
-              On your move-in date, your keys will be waiting for you.
-              We will complete a condition form with you documenting the state of your bedroom
-              and the common areas — this protects you and ensures a smooth move-out experience.
+              On your move-in date, your keys will be waiting for you. We'll complete a condition
+              form documenting the state of your bedroom and common areas to protect everyone.
             </p>
           </div>
         </li>
-
       </ol>
     </div>
   </section>
 
-  <!-- PHOTO HIGHLIGHTS -->
-  <section class="section section--gray">
+  <!-- PHOTO ROW -->
+  <section class="section">
     <div class="container">
-      <h2 class="text-center">What Awaits You</h2>
+      <h2 class="section-heading">What Awaits You</h2>
+      <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src="/images/dining-room.jpg" alt="UW Manor dining room" loading="lazy" />
-        <img src="/images/kitchen-family-room.jpg" alt="UW Manor kitchen and family room" loading="lazy" />
-        <img src="/images/backyard-turf.jpg" alt="UW Manor backyard with turf lawn" loading="lazy" />
-        <img src="/images/back-decks.jpg" alt="UW Manor decks" loading="lazy" />
+        <img src={`${base}images/kitchen-family-room.jpg`} alt="UW Manor kitchen and family room" loading="lazy" />
+        <img src={`${base}images/backyard-turf.jpg`} alt="UW Manor backyard" loading="lazy" />
+        <img src={`${base}images/back-decks.jpg`} alt="UW Manor decks" loading="lazy" />
+        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor bathroom" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section">
-    <div class="container" style="max-width: 800px;">
-      <h2 class="text-center">Frequently Asked Questions</h2>
-      <div style="margin-top: 2rem;">
+  <section class="section section--gray">
+    <div class="container" style="max-width:800px;">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="gold-bar"></div>
 
-        <div style="margin-bottom: 1.75rem;">
-          <h3>Is UW Manor affiliated with the University of Washington?</h3>
-          <p>No. UW Manor is a privately owned property and is not owned by or affiliated with the University of Washington in any way.</p>
+      <div style="margin-top:2rem; display:flex; flex-direction:column; gap:1.75rem;">
+
+        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
+          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">Is UW Manor affiliated with the University of Washington?</h3>
+          <p style="margin:0;">No. UW Manor is privately owned and not affiliated with the University of Washington in any way.</p>
         </div>
 
-        <div style="margin-bottom: 1.75rem;">
-          <h3>Can I rent just one bedroom?</h3>
-          <p>We rent the entire house as a group rental only. Your group would lease the whole house together. Please contact us for pricing details.</p>
+        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
+          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">Can I rent just one bedroom?</h3>
+          <p style="margin:0;">We rent the entire house as a group rental only. Your group would lease the whole house together. Contact us for pricing.</p>
         </div>
 
-        <div style="margin-bottom: 1.75rem;">
-          <h3>What is included with the rental?</h3>
-          <p>
-            The rent includes fully furnished common areas (living room, dining room), monthly professional cleaning of all common areas,
-            year-round yard maintenance, ample parking (tandem + two garages), and access to the large private backyard with decks and patios.
-          </p>
+        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
+          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">What is included?</h3>
+          <p style="margin:0;">Fully furnished common areas, monthly professional cleaning of all common areas, year-round yard maintenance, ample parking (tandem + two garages), and the large private backyard with decks and patios.</p>
         </div>
 
-        <div style="margin-bottom: 1.75rem;">
-          <h3>What do I need to bring?</h3>
-          <p>The common areas are fully furnished. The only items you need to provide are those for your own bedroom. Every bedroom has its own private lock.</p>
-        </div>
-
-        <div style="margin-bottom: 1.75rem;">
-          <h3>How do I get started?</h3>
-          <p>
-            Email <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or call
-            <a href="tel:+12068582843">206-858-2843</a> to inquire about pricing and availability,
-            then <a href="/apply">complete our online application</a>.
-          </p>
+        <div style="background:#fff; padding:1.5rem; border-radius:6px; border-left:4px solid var(--uw-gold); box-shadow:0 2px 8px rgba(75,46,131,0.07);">
+          <h3 style="color:var(--uw-purple); margin-bottom:0.4rem;">What do I need to bring?</h3>
+          <p style="margin:0;">Only items for your own bedroom. Common areas are fully furnished. Every bedroom has its own private lock.</p>
         </div>
 
       </div>
@@ -135,7 +143,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <h2>Ready to Move Forward?</h2>
       <p>Apply online today — it only takes a few minutes.</p>
-      <a href="/apply" class="btn btn--white">Apply Now</a>
+      <a href={`${base}apply`} class="btn btn--gold">Apply Now</a>
     </div>
   </div>
 

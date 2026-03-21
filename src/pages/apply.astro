@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
   title="Apply Now"
-  description="Apply to rent UW Manor online. Complete our student rental application form right in your browser and submit it directly to us. Group rental near the University of Washington, Seattle."
+  description="Apply to rent UW Manor online. Complete our student rental application form right in your browser and submit directly. Group rental near the University of Washington, Seattle."
   image="/images/kitchen-family-room.jpg"
 >
 
@@ -12,6 +13,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="page-header">
     <div class="container">
       <h1>Rental Application</h1>
+      <p class="page-header__sub">Fill out and submit online — no printing required</p>
+    </div>
+  </div>
+
+  <!-- INTRO IMAGE STRIP -->
+  <div style="background: var(--bg-gray); padding: 2rem 0;">
+    <div class="container">
+      <div class="photo-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <img src={`${base}images/backyard2.jpg`} alt="UW Manor backyard" loading="lazy" />
+        <img src={`${base}images/kitchen-family-room.jpg`} alt="UW Manor kitchen" loading="lazy" />
+        <img src={`${base}images/back-decks.jpg`} alt="UW Manor decks" loading="lazy" />
+        <img src={`${base}images/main-bathroom.jpg`} alt="UW Manor bathroom" loading="lazy" />
+      </div>
     </div>
   </div>
 
@@ -22,7 +36,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="disclaimer">
           <strong>Group Rental:</strong> UW Manor is rented as an entire house to one group of students.
-          Each member of the group should complete a separate application.
+          Each member of the group should submit a separate application.
           Please contact us at <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or
           <a href="tel:+12068582843">206-858-2843</a> before submitting to confirm availability and pricing.
         </div>
@@ -33,28 +47,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           method="POST"
           novalidate
         >
-          <!-- Hidden metadata -->
           <input type="hidden" name="_subject" value="UW Manor Rental Application" />
-          <input type="hidden" name="_next" value="/apply-success" />
+          <input type="hidden" name="_next" value={`${base}apply-success`} />
 
-          <!-- ===== APPLICANT INFORMATION ===== -->
+          <!-- APPLICANT INFO -->
           <div class="form-section">
             <h3>Applicant Information</h3>
             <div class="form-grid">
               <div class="form-group">
-                <label for="firstName">First Name <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="firstName">First Name <span style="color:red">*</span></label>
                 <input type="text" id="firstName" name="first_name" required autocomplete="given-name" />
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="lastName">Last Name <span style="color:red">*</span></label>
                 <input type="text" id="lastName" name="last_name" required autocomplete="family-name" />
               </div>
               <div class="form-group">
-                <label for="email">Email Address <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="email">Email Address <span style="color:red">*</span></label>
                 <input type="email" id="email" name="email" required autocomplete="email" />
               </div>
               <div class="form-group">
-                <label for="phone">Phone Number <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="phone">Phone Number <span style="color:red">*</span></label>
                 <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(206) 555-0100" />
               </div>
               <div class="form-group">
@@ -68,7 +81,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
-          <!-- ===== CURRENT ADDRESS ===== -->
+          <!-- CURRENT ADDRESS -->
           <div class="form-section">
             <h3>Current Address</h3>
             <div class="form-grid">
@@ -82,7 +95,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="form-group">
                 <label for="currentState">State</label>
-                <input type="text" id="currentState" name="current_state" autocomplete="address-level1" value="WA" />
+                <input type="text" id="currentState" name="current_state" value="WA" autocomplete="address-level1" />
               </div>
               <div class="form-group">
                 <label for="currentZip">ZIP Code</label>
@@ -97,16 +110,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <input type="tel" id="currentLandlordPhone" name="current_landlord_phone" />
               </div>
               <div class="form-group">
-                <label for="currentRentFrom">Residence From (Month/Year)</label>
+                <label for="currentRentFrom">Residence From</label>
                 <input type="text" id="currentRentFrom" name="current_rent_from" placeholder="e.g. September 2023" />
               </div>
               <div class="form-group">
-                <label for="currentRentTo">Residence To (Month/Year)</label>
+                <label for="currentRentTo">Residence To</label>
                 <input type="text" id="currentRentTo" name="current_rent_to" placeholder="e.g. Present" />
               </div>
               <div class="form-group">
                 <label for="currentMonthlyRent">Monthly Rent ($)</label>
-                <input type="number" id="currentMonthlyRent" name="current_monthly_rent" min="0" step="1" />
+                <input type="number" id="currentMonthlyRent" name="current_monthly_rent" min="0" />
               </div>
               <div class="form-group">
                 <label for="reasonForLeaving">Reason for Leaving</label>
@@ -115,9 +128,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
-          <!-- ===== PREVIOUS ADDRESS ===== -->
+          <!-- PREVIOUS ADDRESS -->
           <div class="form-section">
-            <h3>Previous Address <span style="font-size:0.85rem; color:#888; font-weight:400;">(if less than 2 years at current address)</span></h3>
+            <h3>Previous Address <span style="font-size:0.8rem; color:#888; font-weight:400;">(if less than 2 years at current address)</span></h3>
             <div class="form-grid">
               <div class="form-group form-group--full">
                 <label for="prevAddress">Street Address</label>
@@ -140,17 +153,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <input type="tel" id="prevLandlordPhone" name="prev_landlord_phone" />
               </div>
               <div class="form-group">
-                <label for="prevRentFrom">From (Month/Year)</label>
+                <label for="prevRentFrom">From</label>
                 <input type="text" id="prevRentFrom" name="prev_rent_from" />
               </div>
               <div class="form-group">
-                <label for="prevRentTo">To (Month/Year)</label>
+                <label for="prevRentTo">To</label>
                 <input type="text" id="prevRentTo" name="prev_rent_to" />
               </div>
             </div>
           </div>
 
-          <!-- ===== EMPLOYMENT / INCOME ===== -->
+          <!-- EMPLOYMENT -->
           <div class="form-section">
             <h3>Employment &amp; Income</h3>
             <div class="form-grid">
@@ -167,23 +180,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <input type="tel" id="employerPhone" name="employer_phone" />
               </div>
               <div class="form-group">
-                <label for="monthlyIncome">Monthly Income ($) <span style="font-size:0.8rem; color:#888;">(or indicate if student)</span></label>
-                <input type="text" id="monthlyIncome" name="monthly_income" placeholder="e.g. $1,500 / Student" />
+                <label for="monthlyIncome">Monthly Income ($)</label>
+                <input type="text" id="monthlyIncome" name="monthly_income" placeholder="e.g. $1,500 or Student" />
               </div>
               <div class="form-group">
-                <label for="employedFrom">Employed/Enrolled Since</label>
+                <label for="employedFrom">Employed / Enrolled Since</label>
                 <input type="text" id="employedFrom" name="employed_from" placeholder="e.g. September 2022" />
               </div>
             </div>
           </div>
 
-          <!-- ===== EMERGENCY CONTACT / CO-SIGNER ===== -->
+          <!-- EMERGENCY CONTACT -->
           <div class="form-section">
             <h3>Emergency Contact &amp; Co-Signer / Guarantor</h3>
             <div class="form-grid">
               <div class="form-group">
                 <label for="emergencyName">Emergency Contact Name</label>
-                <input type="text" id="emergencyName" name="emergency_name" autocomplete="off" />
+                <input type="text" id="emergencyName" name="emergency_name" />
               </div>
               <div class="form-group">
                 <label for="emergencyRelation">Relationship</label>
@@ -202,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <input type="text" id="emergencyAddress" name="emergency_address" />
               </div>
               <div class="form-group">
-                <label for="cosignerName">Co-signer / Guarantor Name <span style="font-size:0.8rem; color:#888;">(if applicable)</span></label>
+                <label for="cosignerName">Co-signer / Guarantor Name</label>
                 <input type="text" id="cosignerName" name="cosigner_name" />
               </div>
               <div class="form-group">
@@ -216,12 +229,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
-          <!-- ===== RENTAL INFORMATION ===== -->
+          <!-- RENTAL INFO -->
           <div class="form-section">
             <h3>Rental Information</h3>
             <div class="form-grid">
               <div class="form-group">
-                <label for="desiredMoveIn">Desired Move-In Date <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="desiredMoveIn">Desired Move-In Date <span style="color:red">*</span></label>
                 <input type="date" id="desiredMoveIn" name="desired_move_in" required />
               </div>
               <div class="form-group">
@@ -250,18 +263,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </select>
               </div>
               <div class="form-group form-group--full">
-                <label for="groupNotes">Tell us about your group <span style="font-size:0.8rem; color:#888;">(names, majors, year in school, etc.)</span></label>
-                <textarea id="groupNotes" name="group_notes" rows="4" placeholder="e.g. We are a group of 8 junior and senior students studying engineering and biology..."></textarea>
+                <label for="groupNotes">Tell us about your group</label>
+                <textarea id="groupNotes" name="group_notes" rows="4" placeholder="e.g. We are a group of 8 junior and senior students studying engineering and biology…"></textarea>
               </div>
             </div>
           </div>
 
-          <!-- ===== BACKGROUND & DISCLOSURES ===== -->
+          <!-- BACKGROUND -->
           <div class="form-section">
             <h3>Background &amp; Disclosures</h3>
             <div class="form-grid form-grid--full">
               <div class="form-group">
-                <label for="evicted">Have you ever been evicted or asked to vacate a rental property?</label>
+                <label for="evicted">Have you ever been evicted or asked to vacate?</label>
                 <select id="evicted" name="evicted">
                   <option value="">Select…</option>
                   <option value="No">No</option>
@@ -293,7 +306,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </select>
               </div>
               <div class="form-group" id="petsDetails" style="display:none;">
-                <label for="petsExplain">If yes, please describe (type, breed, weight)</label>
+                <label for="petsExplain">If yes, describe (type, breed, weight)</label>
                 <textarea id="petsExplain" name="pets_explain" rows="2"></textarea>
               </div>
               <div class="form-group">
@@ -307,52 +320,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
-          <!-- ===== ADDITIONAL NOTES ===== -->
+          <!-- ADDITIONAL NOTES -->
           <div class="form-section">
             <h3>Additional Information</h3>
             <div class="form-group">
               <label for="additionalNotes">Anything else you'd like us to know?</label>
-              <textarea id="additionalNotes" name="additional_notes" rows="4" placeholder="Additional questions, comments, or information..."></textarea>
+              <textarea id="additionalNotes" name="additional_notes" rows="4" placeholder="Additional questions, comments, or information…"></textarea>
             </div>
           </div>
 
-          <!-- ===== CERTIFICATION ===== -->
+          <!-- CERTIFICATION -->
           <div class="form-section">
             <h3>Certification</h3>
-            <p style="margin-bottom: 1rem; font-size: 0.95rem;">
-              I certify that the information provided in this application is true and correct to the best of my knowledge.
-              I authorize UW Manor to verify the information provided herein. I understand that providing false
-              information is grounds for denial of this application or termination of tenancy.
+            <p style="margin-bottom:1rem; font-size:0.95rem;">
+              I certify that all information provided is true and correct. I authorize UW Manor to
+              verify the information herein. Providing false information is grounds for denial or
+              termination of tenancy.
             </p>
             <div class="form-grid">
               <div class="form-group">
-                <label for="printedName">Printed Name <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="printedName">Printed Name <span style="color:red">*</span></label>
                 <input type="text" id="printedName" name="printed_name" required />
               </div>
               <div class="form-group">
-                <label for="signatureDate">Date <span aria-hidden="true" style="color:red">*</span></label>
+                <label for="signatureDate">Date <span style="color:red">*</span></label>
                 <input type="date" id="signatureDate" name="signature_date" required />
               </div>
             </div>
             <div class="form-group mt-1">
               <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer;">
-                <input
-                  type="checkbox"
-                  name="certify_true"
-                  required
-                  style="width:auto; margin-top:0.2rem; flex-shrink:0;"
-                />
-                <span>
-                  I certify that all information provided is accurate and I authorize UW Manor to contact
-                  the references listed in this application. <span aria-hidden="true" style="color:red">*</span>
-                </span>
+                <input type="checkbox" name="certify_true" required style="width:auto; margin-top:0.2rem; flex-shrink:0;" />
+                <span>I certify all information is accurate and authorize UW Manor to contact the references listed. <span style="color:red">*</span></span>
               </label>
             </div>
           </div>
 
           <!-- SUBMIT -->
           <div class="form-submit">
-            <button type="submit" class="btn btn--primary">Submit Application</button>
+            <button type="submit" class="btn btn--gold" style="font-size:1.1rem; padding:0.9rem 3rem;">Submit Application</button>
             <p class="form-note">
               Your application will be sent directly to <strong>uwmanor@gmail.com</strong>.
               We typically respond within 1–2 business days.
@@ -360,12 +365,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
         </form>
-
       </div>
     </div>
   </section>
 
-  <!-- Show/hide conditional fields -->
   <script>
     function conditionalField(selectId: string, detailsId: string) {
       const select = document.getElementById(selectId) as HTMLSelectElement;

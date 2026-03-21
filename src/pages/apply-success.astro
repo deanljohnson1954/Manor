@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -9,16 +10,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="section" style="min-height: 60vh; display: flex; align-items: center;">
     <div class="container text-center">
       <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
-      <h1>Application Received!</h1>
-      <p style="font-size: 1.15rem; color: #555; max-width: 500px; margin: 1rem auto 2rem;">
+      <h1 style="color:var(--uw-purple);">Application Received!</h1>
+      <div class="gold-bar"></div>
+      <p style="font-size:1.1rem; color:var(--text-mid); max-width:500px; margin:1rem auto 2rem;">
         Thank you for applying to UW Manor. We will review your application and be in touch within
         <strong>1–2 business days</strong>.
       </p>
-      <p style="margin-bottom: 2rem;">
-        Questions? Email us at <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+      <p style="margin-bottom:2rem;">
+        Questions? Email <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
         or call <a href="tel:+12068582843">206-858-2843</a>.
       </p>
-      <a href="/" class="btn btn--primary">Return to Home</a>
+      <a href={base} class="btn btn--purple">Return to Home</a>
     </div>
   </div>
 </BaseLayout>
