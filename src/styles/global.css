@@ -1,16 +1,16 @@
-/* ===== PROFESSIONAL COLOR PALETTE ===== */
+/* ===== COLOR PALETTE (matches SLR website) ===== */
 :root {
-  --uw-purple:      #1d2d44;   /* deep navy (header, footer, dark backgrounds) */
-  --uw-purple-dark: #121f30;
-  --uw-purple-mid:  #18253c;
-  --uw-gold:        #3a7bd5;   /* clean blue (accent, buttons, bars) */
-  --uw-gold-dark:   #2c5fa8;
-  --uw-gold-light:  #e8f0fb;   /* light blue tint */
-  --text-dark:      #1a1a1a;
+  --uw-purple:      #2c4a3e;   /* deep forest green */
+  --uw-purple-dark: #1a2d25;   /* darker green */
+  --uw-purple-mid:  #243d32;
+  --uw-gold:        #c9a961;   /* warm gold */
+  --uw-gold-dark:   #a8893d;
+  --uw-gold-light:  #e8d5a8;   /* light warm gold */
+  --text-dark:      #1f1f1f;
   --text-mid:       #444;
   --text-light:     #666;
   --border:         #ddd;
-  --bg-gray:        #f5f6f8;
+  --bg-gray:        #faf8f4;   /* warm cream */
 }
 
 /* ===== RESET & BASE ===== */
