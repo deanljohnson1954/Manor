@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="UW Manor – premium student group rental on Greek Row, just steps from the University of Washington. Fully furnished common areas, 5 bathrooms, large backyard, decks, and parking."
+  image="/images/backyard2.jpg"
+>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="UW Manor hero image">
+    <img
+      src="/images/backyard2.jpg"
+      alt="UW Manor backyard with artificial turf lawn and decks"
+      class="hero__bg"
+      fetchpriority="high"
+    />
+    <div class="hero__content">
+      <h1 class="hero__title">UW MANOR</h1>
+      <p class="hero__subtitle">Premier Student Housing on Greek Row — Seattle, WA</p>
+      <p class="hero__disclaimer">Not owned by or affiliated with the University of Washington</p>
+      <div class="mt-2">
+        <a href="/apply" class="btn btn--white">Apply Now</a>
+        &nbsp;&nbsp;
+        <a href="/about" class="btn btn--white" style="background: transparent; border: 2px solid #fff; color: #fff;">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER + ADDRESS -->
+  <section class="section section--gray">
+    <div class="container text-center">
+      <h2>5048 17th Ave. NE, Seattle, Washington 98105</h2>
+      <p>
+        On Greek Row, just one block from campus — a gracious boarding home ideal for groups of students.<br />
+        <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a> &nbsp;|&nbsp;
+        <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+      </p>
+      <p class="mt-1" style="font-size: 0.9rem; color: #666;">
+        For our other property, visit <a href="https://www.uwcourt.com" target="_blank" rel="noopener">www.uwcourt.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">We Handle All the Details</h2>
+      <p class="text-center" style="color: #666; max-width: 640px; margin: 0 auto 1rem;">
+        Our goal is to make living at the UW as easy as possible.
+        The only items you need to bring are for your own bedroom — everything else is taken care of.
+      </p>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-card__icon">🛋️</div>
+          <h3>Fully Furnished Common Areas</h3>
+          <p>The living room and dining room are fully furnished and ready to enjoy from day one.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🧹</div>
+          <h3>Monthly Professional Cleaning</h3>
+          <p>A professional cleaner visits once a month to clean all common areas — keeping the house spotless.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🌿</div>
+          <h3>Yard Maintenance Included</h3>
+          <p>Year-round yard care maintains the beautiful front yard and enclosed private backyard.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔑</div>
+          <h3>Private Bedroom Locks</h3>
+          <p>Every bedroom comes with its own lock for your privacy and peace of mind.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🚗</div>
+          <h3>Ample Parking</h3>
+          <p>2–3 car tandem parking plus two single-car garages — no street parking stress.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🏡</div>
+          <h3>Group Rental</h3>
+          <p>We rent the entire house to a group. Perfect for a cohesive group of students living together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO HIGHLIGHTS -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2 class="text-center">A Look Inside</h2>
+      <div class="photo-grid">
+        <img src="/images/kitchen-family-room.jpg" alt="UW Manor kitchen and family room" loading="lazy" />
+        <img src="/images/backyard2.jpg" alt="UW Manor backyard with artificial turf" loading="lazy" />
+        <img src="/images/dining-room.jpg" alt="UW Manor dining room" loading="lazy" />
+        <img src="/images/back-decks.jpg" alt="UW Manor back decks" loading="lazy" />
+        <img src="/images/main-bathroom.jpg" alt="UW Manor main bathroom" loading="lazy" />
+        <img src="/images/house-exterior.jpg" alt="UW Manor exterior" loading="lazy" />
+      </div>
+      <div class="text-center mt-2">
+        <a href="/about" class="btn btn--primary">See All Photos &amp; Amenities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO APPLY -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Ready to Apply?</h2>
+          <p>
+            UW Manor rents the entire house as a <strong>group rental</strong>. If you have a group of students
+            looking for a premier location close to campus, we want to hear from you.
+          </p>
+          <p>
+            Complete our online application — fill it out right in your browser and submit it directly to us.
+            No printing or scanning required.
+          </p>
+          <ul style="margin: 1rem 0 1.5rem 1.5rem; line-height: 2;">
+            <li>Contact us to discuss pricing and availability</li>
+            <li>Complete the online application</li>
+            <li>Sign the lease &amp; make required deposits</li>
+            <li>Move in — your keys will be waiting!</li>
+          </ul>
+          <a href="/apply" class="btn btn--primary">Fill Out Application</a>
+        </div>
+        <div>
+          <img src="/images/cherry-blossoms.png" alt="Cherry blossoms near the University of Washington" loading="lazy" style="border-radius: 6px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="container">
+      <h2>Questions? We'd Love to Hear From You</h2>
+      <p>Call us at <a href="tel:+12068582843" style="color:#fff; font-weight:700;">206-858-2843</a> or email
+        <a href="mailto:uwmanor@gmail.com" style="color:#fff; font-weight:700;">uwmanor@gmail.com</a>
+      </p>
+      <a href="/apply" class="btn btn--white">Apply Now</a>
+    </div>
+  </div>
+
+</BaseLayout>

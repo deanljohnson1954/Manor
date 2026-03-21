@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="UW Manor is located at 5048 17th Ave. NE, Seattle — one block from Greek Row and a 10-minute walk to UW's main campus. Learn about our amenities, location, and what makes UW Manor special."
+  image="/images/back-decks.jpg"
+>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>About UW Manor</h1>
+    </div>
+  </div>
+
+  <!-- ABOUT / LOCATION -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>Prime Location</h2>
+          <p>
+            UW Manor is located at
+            <strong>
+              <a href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105" target="_blank" rel="noopener">
+                5048 17th Ave. NE, Seattle, WA 98105
+              </a>
+            </strong>
+            — just one block away from Greek Row and a short ten-minute walk to the main entrance of the University of Washington campus.
+          </p>
+          <p>
+            For many years, UW Manor was a private residence. It was converted to a student boarding home
+            only a few years ago. In addition to its premier location, it offers many amenities simply
+            not available at other rental properties.
+          </p>
+          <ul style="margin: 0.5rem 0 1rem 1.5rem; line-height: 2;">
+            <li>Large upper and lower decks</li>
+            <li>Massive fully fenced backyard</li>
+            <li>Five elegant bathrooms</li>
+            <li>Ample furnished common areas</li>
+            <li>2–3 car tandem parking</li>
+            <li>Two single-car garages</li>
+            <li>Monthly professional cleaning</li>
+            <li>Year-round yard maintenance</li>
+          </ul>
+          <p>
+            <strong>Phone:</strong> <a href="tel:+12068582843">206-858-2843</a><br />
+            <strong>Email:</strong> <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+          </p>
+        </div>
+        <div>
+          <img
+            src="/images/house-exterior.jpg"
+            alt="UW Manor house exterior"
+            style="border-radius: 6px; width: 100%;"
+            loading="lazy"
+          />
+          <div class="address-block mt-2">
+            <h3>Contact &amp; Address</h3>
+            <p>5048 17th Ave. NE<br />Seattle, Washington 98105</p>
+            <p>
+              <a href="tel:+12068582843">206-858-2843</a><br />
+              <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>
+            </p>
+            <p style="margin-top: 1rem;">
+              <a
+                href="https://www.google.com/maps/place/5048+17th+Ave+NE,+Seattle,+WA+98105"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--white"
+                style="display:inline-block; margin-top:0.5rem;"
+              >
+                View on Google Maps
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2 class="text-center">Outdoor Spaces</h2>
+      <div class="photo-grid">
+        <img src="/images/backyard2.jpg" alt="UW Manor backyard with artificial turf lawn" loading="lazy" />
+        <img src="/images/backyard-turf.jpg" alt="UW Manor backyard area" loading="lazy" />
+        <img src="/images/back-decks.jpg" alt="UW Manor back decks panoramic view" loading="lazy" />
+        <img src="/images/back-patio.jpg" alt="UW Manor back patio panoramic view" loading="lazy" />
+        <img src="/images/deck2.jpg" alt="UW Manor deck view" loading="lazy" />
+        <img src="/images/house-exterior.jpg" alt="UW Manor house exterior" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- BATHROOMS & INTERIOR -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Five Elegant Bathrooms &amp; Interior</h2>
+      <p class="text-center" style="color: #666; max-width: 640px; margin: 0 auto 1.5rem;">
+        UW Manor features five beautifully appointed bathrooms — a true luxury in student housing.
+      </p>
+      <div class="photo-panorama">
+        <img src="/images/main-bathroom.jpg" alt="UW Manor main bathroom panoramic view" loading="lazy" />
+        <img src="/images/bathroom.jpg" alt="UW Manor bathroom panoramic view" loading="lazy" />
+        <img src="/images/bath3.jpg" alt="UW Manor third bathroom panoramic view" loading="lazy" />
+        <img src="/images/newbathroom2.jpg" alt="UW Manor updated bathroom panoramic view" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- KITCHEN & COMMON AREAS -->
+  <section class="section section--gray">
+    <div class="container">
+      <h2 class="text-center">Common Areas &amp; Kitchen</h2>
+      <div class="photo-grid">
+        <img src="/images/kitchen-family-room.jpg" alt="UW Manor kitchen and family room" loading="lazy" />
+        <img src="/images/dining-room.jpg" alt="UW Manor dining room" loading="lazy" />
+        <img src="/images/bedroom-panorama.jpg" alt="UW Manor bedroom panoramic view" loading="lazy" />
+        <img src="/images/laundry.jpg" alt="UW Manor laundry room" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div class="container">
+      <h2>Interested in Renting UW Manor?</h2>
+      <p>Contact us today or fill out our online application to get started.</p>
+      <a href="/apply" class="btn btn--white">Apply Now</a>
+      &nbsp;&nbsp;
+      <a href="/lease-process" class="btn btn--white" style="background: transparent; border: 2px solid #fff; color: #fff; margin-top: 0.5rem;">
+        See the Lease Process
+      </a>
+    </div>
+  </div>
+
+</BaseLayout>

@@ -1,0 +1,383 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Apply Now"
+  description="Apply to rent UW Manor online. Complete our student rental application form right in your browser and submit it directly to us. Group rental near the University of Washington, Seattle."
+  image="/images/kitchen-family-room.jpg"
+>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Rental Application</h1>
+    </div>
+  </div>
+
+  <!-- APPLICATION FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="apply-form">
+
+        <div class="disclaimer">
+          <strong>Group Rental:</strong> UW Manor is rented as an entire house to one group of students.
+          Each member of the group should complete a separate application.
+          Please contact us at <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> or
+          <a href="tel:+12068582843">206-858-2843</a> before submitting to confirm availability and pricing.
+        </div>
+
+        <form
+          id="rentalApplication"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          novalidate
+        >
+          <!-- Hidden metadata -->
+          <input type="hidden" name="_subject" value="UW Manor Rental Application" />
+          <input type="hidden" name="_next" value="/apply-success" />
+
+          <!-- ===== APPLICANT INFORMATION ===== -->
+          <div class="form-section">
+            <h3>Applicant Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">First Name <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="text" id="firstName" name="first_name" required autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="text" id="lastName" name="last_name" required autocomplete="family-name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(206) 555-0100" />
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="date_of_birth" />
+              </div>
+              <div class="form-group">
+                <label for="studentId">UW Student ID (if applicable)</label>
+                <input type="text" id="studentId" name="student_id" placeholder="Optional" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== CURRENT ADDRESS ===== -->
+          <div class="form-section">
+            <h3>Current Address</h3>
+            <div class="form-grid">
+              <div class="form-group form-group--full">
+                <label for="currentAddress">Street Address</label>
+                <input type="text" id="currentAddress" name="current_address" autocomplete="street-address" />
+              </div>
+              <div class="form-group">
+                <label for="currentCity">City</label>
+                <input type="text" id="currentCity" name="current_city" autocomplete="address-level2" />
+              </div>
+              <div class="form-group">
+                <label for="currentState">State</label>
+                <input type="text" id="currentState" name="current_state" autocomplete="address-level1" value="WA" />
+              </div>
+              <div class="form-group">
+                <label for="currentZip">ZIP Code</label>
+                <input type="text" id="currentZip" name="current_zip" autocomplete="postal-code" />
+              </div>
+              <div class="form-group">
+                <label for="currentLandlord">Current Landlord / Property Manager</label>
+                <input type="text" id="currentLandlord" name="current_landlord" />
+              </div>
+              <div class="form-group">
+                <label for="currentLandlordPhone">Landlord Phone</label>
+                <input type="tel" id="currentLandlordPhone" name="current_landlord_phone" />
+              </div>
+              <div class="form-group">
+                <label for="currentRentFrom">Residence From (Month/Year)</label>
+                <input type="text" id="currentRentFrom" name="current_rent_from" placeholder="e.g. September 2023" />
+              </div>
+              <div class="form-group">
+                <label for="currentRentTo">Residence To (Month/Year)</label>
+                <input type="text" id="currentRentTo" name="current_rent_to" placeholder="e.g. Present" />
+              </div>
+              <div class="form-group">
+                <label for="currentMonthlyRent">Monthly Rent ($)</label>
+                <input type="number" id="currentMonthlyRent" name="current_monthly_rent" min="0" step="1" />
+              </div>
+              <div class="form-group">
+                <label for="reasonForLeaving">Reason for Leaving</label>
+                <input type="text" id="reasonForLeaving" name="reason_for_leaving" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PREVIOUS ADDRESS ===== -->
+          <div class="form-section">
+            <h3>Previous Address <span style="font-size:0.85rem; color:#888; font-weight:400;">(if less than 2 years at current address)</span></h3>
+            <div class="form-grid">
+              <div class="form-group form-group--full">
+                <label for="prevAddress">Street Address</label>
+                <input type="text" id="prevAddress" name="prev_address" />
+              </div>
+              <div class="form-group">
+                <label for="prevCity">City</label>
+                <input type="text" id="prevCity" name="prev_city" />
+              </div>
+              <div class="form-group">
+                <label for="prevState">State</label>
+                <input type="text" id="prevState" name="prev_state" />
+              </div>
+              <div class="form-group">
+                <label for="prevLandlord">Previous Landlord</label>
+                <input type="text" id="prevLandlord" name="prev_landlord" />
+              </div>
+              <div class="form-group">
+                <label for="prevLandlordPhone">Landlord Phone</label>
+                <input type="tel" id="prevLandlordPhone" name="prev_landlord_phone" />
+              </div>
+              <div class="form-group">
+                <label for="prevRentFrom">From (Month/Year)</label>
+                <input type="text" id="prevRentFrom" name="prev_rent_from" />
+              </div>
+              <div class="form-group">
+                <label for="prevRentTo">To (Month/Year)</label>
+                <input type="text" id="prevRentTo" name="prev_rent_to" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== EMPLOYMENT / INCOME ===== -->
+          <div class="form-section">
+            <h3>Employment &amp; Income</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="employer">Employer / School</label>
+                <input type="text" id="employer" name="employer" placeholder="University of Washington, etc." />
+              </div>
+              <div class="form-group">
+                <label for="occupation">Occupation / Major</label>
+                <input type="text" id="occupation" name="occupation" />
+              </div>
+              <div class="form-group">
+                <label for="employerPhone">Employer / School Phone</label>
+                <input type="tel" id="employerPhone" name="employer_phone" />
+              </div>
+              <div class="form-group">
+                <label for="monthlyIncome">Monthly Income ($) <span style="font-size:0.8rem; color:#888;">(or indicate if student)</span></label>
+                <input type="text" id="monthlyIncome" name="monthly_income" placeholder="e.g. $1,500 / Student" />
+              </div>
+              <div class="form-group">
+                <label for="employedFrom">Employed/Enrolled Since</label>
+                <input type="text" id="employedFrom" name="employed_from" placeholder="e.g. September 2022" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== EMERGENCY CONTACT / CO-SIGNER ===== -->
+          <div class="form-section">
+            <h3>Emergency Contact &amp; Co-Signer / Guarantor</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="emergencyName">Emergency Contact Name</label>
+                <input type="text" id="emergencyName" name="emergency_name" autocomplete="off" />
+              </div>
+              <div class="form-group">
+                <label for="emergencyRelation">Relationship</label>
+                <input type="text" id="emergencyRelation" name="emergency_relation" placeholder="e.g. Parent, Guardian" />
+              </div>
+              <div class="form-group">
+                <label for="emergencyPhone">Emergency Contact Phone</label>
+                <input type="tel" id="emergencyPhone" name="emergency_phone" />
+              </div>
+              <div class="form-group">
+                <label for="emergencyEmail">Emergency Contact Email</label>
+                <input type="email" id="emergencyEmail" name="emergency_email" />
+              </div>
+              <div class="form-group form-group--full">
+                <label for="emergencyAddress">Emergency Contact Address</label>
+                <input type="text" id="emergencyAddress" name="emergency_address" />
+              </div>
+              <div class="form-group">
+                <label for="cosignerName">Co-signer / Guarantor Name <span style="font-size:0.8rem; color:#888;">(if applicable)</span></label>
+                <input type="text" id="cosignerName" name="cosigner_name" />
+              </div>
+              <div class="form-group">
+                <label for="cosignerPhone">Co-signer Phone</label>
+                <input type="tel" id="cosignerPhone" name="cosigner_phone" />
+              </div>
+              <div class="form-group form-group--full">
+                <label for="cosignerAddress">Co-signer Address</label>
+                <input type="text" id="cosignerAddress" name="cosigner_address" />
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== RENTAL INFORMATION ===== -->
+          <div class="form-section">
+            <h3>Rental Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="desiredMoveIn">Desired Move-In Date <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="date" id="desiredMoveIn" name="desired_move_in" required />
+              </div>
+              <div class="form-group">
+                <label for="leaseLength">Desired Lease Length</label>
+                <select id="leaseLength" name="lease_length">
+                  <option value="">Select…</option>
+                  <option value="9 months (academic year)">9 months (academic year)</option>
+                  <option value="12 months">12 months</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="groupSize">Number of People in Group</label>
+                <input type="number" id="groupSize" name="group_size" min="1" max="20" />
+              </div>
+              <div class="form-group">
+                <label for="howHeard">How did you hear about us?</label>
+                <select id="howHeard" name="how_heard">
+                  <option value="">Select…</option>
+                  <option value="Internet search">Internet search</option>
+                  <option value="Referral from friend">Referral from friend</option>
+                  <option value="Previous tenant">Previous tenant</option>
+                  <option value="Social media">Social media</option>
+                  <option value="UW bulletin board">UW bulletin board</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group form-group--full">
+                <label for="groupNotes">Tell us about your group <span style="font-size:0.8rem; color:#888;">(names, majors, year in school, etc.)</span></label>
+                <textarea id="groupNotes" name="group_notes" rows="4" placeholder="e.g. We are a group of 8 junior and senior students studying engineering and biology..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== BACKGROUND & DISCLOSURES ===== -->
+          <div class="form-section">
+            <h3>Background &amp; Disclosures</h3>
+            <div class="form-grid form-grid--full">
+              <div class="form-group">
+                <label for="evicted">Have you ever been evicted or asked to vacate a rental property?</label>
+                <select id="evicted" name="evicted">
+                  <option value="">Select…</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group" id="evictedDetails" style="display:none;">
+                <label for="evictedExplain">If yes, please explain</label>
+                <textarea id="evictedExplain" name="evicted_explain" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="felony">Have you ever been convicted of a felony?</label>
+                <select id="felony" name="felony">
+                  <option value="">Select…</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group" id="felonyDetails" style="display:none;">
+                <label for="felonyExplain">If yes, please explain</label>
+                <textarea id="felonyExplain" name="felony_explain" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="pets">Do you have pets?</label>
+                <select id="pets" name="pets">
+                  <option value="">Select…</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div class="form-group" id="petsDetails" style="display:none;">
+                <label for="petsExplain">If yes, please describe (type, breed, weight)</label>
+                <textarea id="petsExplain" name="pets_explain" rows="2"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="smoke">Do you or any group members smoke?</label>
+                <select id="smoke" name="smoke">
+                  <option value="">Select…</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== ADDITIONAL NOTES ===== -->
+          <div class="form-section">
+            <h3>Additional Information</h3>
+            <div class="form-group">
+              <label for="additionalNotes">Anything else you'd like us to know?</label>
+              <textarea id="additionalNotes" name="additional_notes" rows="4" placeholder="Additional questions, comments, or information..."></textarea>
+            </div>
+          </div>
+
+          <!-- ===== CERTIFICATION ===== -->
+          <div class="form-section">
+            <h3>Certification</h3>
+            <p style="margin-bottom: 1rem; font-size: 0.95rem;">
+              I certify that the information provided in this application is true and correct to the best of my knowledge.
+              I authorize UW Manor to verify the information provided herein. I understand that providing false
+              information is grounds for denial of this application or termination of tenancy.
+            </p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="printedName">Printed Name <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="text" id="printedName" name="printed_name" required />
+              </div>
+              <div class="form-group">
+                <label for="signatureDate">Date <span aria-hidden="true" style="color:red">*</span></label>
+                <input type="date" id="signatureDate" name="signature_date" required />
+              </div>
+            </div>
+            <div class="form-group mt-1">
+              <label style="display:flex; align-items:flex-start; gap:0.75rem; cursor:pointer;">
+                <input
+                  type="checkbox"
+                  name="certify_true"
+                  required
+                  style="width:auto; margin-top:0.2rem; flex-shrink:0;"
+                />
+                <span>
+                  I certify that all information provided is accurate and I authorize UW Manor to contact
+                  the references listed in this application. <span aria-hidden="true" style="color:red">*</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- SUBMIT -->
+          <div class="form-submit">
+            <button type="submit" class="btn btn--primary">Submit Application</button>
+            <p class="form-note">
+              Your application will be sent directly to <strong>uwmanor@gmail.com</strong>.
+              We typically respond within 1–2 business days.
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Show/hide conditional fields -->
+  <script>
+    function conditionalField(selectId: string, detailsId: string) {
+      const select = document.getElementById(selectId) as HTMLSelectElement;
+      const details = document.getElementById(detailsId) as HTMLElement;
+      if (!select || !details) return;
+      select.addEventListener('change', () => {
+        details.style.display = select.value === 'Yes' ? 'block' : 'none';
+      });
+    }
+    conditionalField('evicted', 'evictedDetails');
+    conditionalField('felony', 'felonyDetails');
+    conditionalField('pets', 'petsDetails');
+  </script>
+
+</BaseLayout>
