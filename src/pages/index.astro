@@ -6,12 +6,12 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 <BaseLayout
   title="Home"
   description="UW Manor – student group rental near the University of Washington. Fully furnished common areas, 5 bathrooms, large backyard, decks, and parking. Seattle, WA."
-  image="/images/house-exterior.jpg"
+  image="/images/exterior-hero.jpg"
 >
 
   <!-- HERO -->
   <section class="hero" aria-label="UW Manor hero">
-    <img src={`${b}/images/house-exterior.jpg`} alt="UW Manor exterior" class="hero__bg" fetchpriority="high" />
+    <img src={`${b}/images/exterior-hero.jpg`} alt="UW Manor exterior" class="hero__bg" fetchpriority="high" />
     <div class="hero__content">
       <h1 class="hero__title">UW MANOR</h1>
       <p class="hero__subtitle">Student Group Rental — One Block from Campus</p>
@@ -24,7 +24,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
   </section>
 
   <!-- ADDRESS STRIP -->
-  <div style="background: var(--uw-purple); padding: 0.65rem 1.5rem; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+  <div style="background: var(--uw-purple); padding: 0.65rem 1.5rem; text-align: center;">
     <p style="margin:0; font-weight:600; color: rgba(255,255,255,0.88); font-size:0.86rem; letter-spacing:0.02em;">
       5048 17th Ave. NE, Seattle, WA 98105 &nbsp;|&nbsp;
       <a href="tel:+12068582843" style="color:#fff;">206-858-2843</a> &nbsp;|&nbsp;
@@ -56,7 +56,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
           <a href={`${b}/about`} class="btn btn--purple" style="margin-top:0.5rem;">Explore the Property</a>
         </div>
         <div>
-          <img src={`${b}/images/back-decks.jpg`} alt="UW Manor back decks"
+          <img src={`${b}/images/living-room.jpg`} alt="UW Manor living room"
             style="border-radius:8px; border:3px solid var(--uw-gold-light); width:100%;" />
         </div>
       </div>
@@ -103,18 +103,18 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
     </div>
   </section>
 
-  <!-- PHOTO GRID -->
+  <!-- PHOTO PREVIEW -->
   <section class="section">
     <div class="container">
-      <h2 class="section-heading">A Look Inside</h2>
+      <h2 class="section-heading">A Look Inside &amp; Out</h2>
       <div class="gold-bar"></div>
       <div class="photo-grid">
-        <img src={`${b}/images/back-decks.jpg`}       alt="UW Manor back decks"        loading="lazy" />
-        <img src={`${b}/images/back-patio.jpg`}       alt="UW Manor back patio"        loading="lazy" />
-        <img src={`${b}/images/dining-room.jpg`}      alt="UW Manor dining room"       loading="lazy" />
-        <img src={`${b}/images/main-bathroom.jpg`}    alt="UW Manor main bathroom"     loading="lazy" />
-        <img src={`${b}/images/bathroom.jpg`}         alt="UW Manor bathroom"          loading="lazy" />
-        <img src={`${b}/images/house-exterior.jpg`}   alt="UW Manor house exterior"    loading="lazy" />
+        <img src={`${b}/images/deck-modern.jpg`}    alt="Modern back deck"        loading="lazy" />
+        <img src={`${b}/images/backyard.jpg`}        alt="Private backyard"        loading="lazy" />
+        <img src={`${b}/images/living-room.jpg`}     alt="Living room"             loading="lazy" />
+        <img src={`${b}/images/bathroom-2.jpg`}      alt="Bathroom"                loading="lazy" />
+        <img src={`${b}/images/deck-pergola.jpg`}    alt="Outdoor deck with pergola" loading="lazy" />
+        <img src={`${b}/images/exterior-spring.jpg`} alt="UW Manor in spring"      loading="lazy" />
       </div>
       <div class="text-center mt-2">
         <a href={`${b}/about`} class="btn btn--purple">View All Photos &amp; Amenities</a>
@@ -122,20 +122,20 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
     </div>
   </section>
 
-  <!-- APPLY CALLOUT -->
+  <!-- CAMPUS CALLOUT -->
   <section class="section section--gray">
     <div class="container">
       <div class="two-col">
         <div>
-          <img src={`${b}/images/bedroom-panorama.jpg`} alt="UW Manor bedroom"
+          <img src={`${b}/images/uw-blossoms.jpg`} alt="University of Washington campus in spring"
             style="border-radius:8px;" loading="lazy" />
         </div>
         <div>
-          <h2 style="color:var(--uw-purple);">Ready to Apply?</h2>
+          <h2 style="color:var(--uw-purple);">Steps from Campus</h2>
           <div class="gold-bar" style="margin-left:0;"></div>
           <p>
-            UW Manor rents the entire house as a <strong>group rental</strong>.
-            Fill out our online application right in your browser — no printing or scanning needed.
+            UW Manor is just one block from the University of Washington — one of the nation's top
+            research universities. Walk to class, the library, and campus events in minutes.
           </p>
           <ul style="margin:0.75rem 0 1.5rem 1.5rem; line-height:2.1;">
             <li>Contact us to discuss pricing &amp; availability</li>
@@ -143,7 +143,7 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
             <li>Sign the lease &amp; make required deposits</li>
             <li>Move in — keys waiting for you</li>
           </ul>
-          <a href={`${b}/apply`} class="btn btn--gold">Fill Out Application</a>
+          <a href={`${b}/apply`} class="btn btn--gold">Apply Now</a>
         </div>
       </div>
     </div>
