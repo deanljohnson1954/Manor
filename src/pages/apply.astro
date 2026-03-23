@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const s = "width:100%; padding:0.5rem 0.75rem; border:1px solid #ccc; border-radius:4px; font-size:0.95rem; font-family:inherit; box-sizing:border-box;";
+const lbl = "display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.3rem;";
 ---
 
 <BaseLayout
   title="Apply"
-  description="Download the UW Manor rental application. All group members must submit a completed application along with a copy of their ID."
+  description="Apply online to rent UW Manor. Fill out the rental application and submit directly to uwmanor@gmail.com."
   image="/images/exterior-hero.jpg"
 >
 
@@ -17,58 +19,156 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
   </div>
 
   <section class="section">
-    <div class="container" style="max-width:780px;">
+    <div class="container" style="max-width:820px;">
 
-      <!-- PROCESS BOX -->
-      <div style="background:#fff; border:2px solid var(--uw-gold); border-radius:8px; padding:2rem 2.5rem; margin-bottom:2.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.07);">
-        <h2 style="color:var(--uw-purple); margin-bottom:0.5rem;">How to Apply</h2>
+      <!-- INSTRUCTIONS -->
+      <div style="background:#fff; border:2px solid var(--uw-gold); border-radius:8px; padding:1.5rem 2rem; margin-bottom:2rem; box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+        <h2 style="color:var(--uw-purple); margin-bottom:0.4rem; font-size:1.4rem;">Before You Apply</h2>
         <div class="gold-bar" style="margin-left:0;"></div>
-
-        <ol style="margin:1rem 0 0 1.25rem; line-height:2.4; font-size:1rem;">
-          <li>
-            <strong>Call us first</strong> — Contact us at
-            <a href="tel:+12068582843">206-858-2843</a> or
-            <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> to confirm
-            the house is available for rent before submitting any application.
-          </li>
-          <li>
-            <strong>Every group member</strong> must complete and submit a separate application form.
-          </li>
-          <li>
-            <strong>Include a copy of your University of Washington Student ID</strong> with each application and a copy of your Driver's License or Passport.
-          </li>
-          <li>
-            Email your completed application and ID copies to
-            <a href="mailto:uwmanor@gmail.com"><strong>uwmanor@gmail.com</strong></a>.
-          </li>
+        <ol style="margin:0.75rem 0 0 1.25rem; line-height:2.2; font-size:0.97rem;">
+          <li><strong>Call us first</strong> — <a href="tel:+12068582843">206-858-2843</a> or <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a> to confirm availability.</li>
+          <li><strong>Every group member</strong> must submit a separate application.</li>
+          <li>After submitting, email a copy of your <strong>University of Washington Student ID</strong> and <strong>Driver's License or Passport</strong> to <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>.</li>
         </ol>
       </div>
 
-      <!-- DOWNLOAD BUTTON -->
-      <div style="text-align:center; margin-bottom:2.5rem;">
-        <a href={`${b}/2026-Manor-Application.pdf`} download class="btn btn--gold"
-          style="font-size:1.1rem; padding:1rem 3rem;">
-          ⬇ Download Application (PDF)
-        </a>
-        <p style="margin-top:1rem; font-size:0.88rem; color:var(--text-light);">
-          Fill it out on your computer or print and complete by hand, then email to
+      <!-- ONLINE FORM -->
+      <form
+        action="https://formsubmit.co/uwmanor@gmail.com"
+        method="POST"
+        style="background:#fff; border-radius:8px; padding:2rem 2.5rem; box-shadow:0 2px 20px rgba(0,0,0,0.08);"
+      >
+        <input type="hidden" name="_subject"  value="UW Manor Rental Application" />
+        <input type="hidden" name="_captcha"  value="false" />
+        <input type="hidden" name="_next"     value="https://deanljohnson1954.github.io/Manor/apply-thanks" />
+        <input type="text"   name="_honey"    style="display:none;" />
+
+        <!-- Applicant Information -->
+        <h2 style="color:var(--uw-purple); margin-bottom:0.3rem;">Applicant Information</h2>
+        <div class="gold-bar" style="margin-left:0; margin-bottom:1.25rem;"></div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Full Name *</label><input type="text" name="name" required style={s} /></div>
+          <div><label style={lbl}>UW Student Status *</label><input type="text" name="uw_student_status" placeholder="e.g. Junior, Senior, Graduate" required style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Date of Birth *</label><input type="text" name="date_of_birth" required style={s} /></div>
+          <div><label style={lbl}>Phone *</label><input type="tel" name="phone" required style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Current Address *</label><input type="text" name="current_address" required style={s} /></div>
+          <div><label style={lbl}>Email *</label><input type="email" name="email" required style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>City</label><input type="text" name="city" style={s} /></div>
+          <div><label style={lbl}>State</label><input type="text" name="state" style={s} /></div>
+          <div><label style={lbl}>ZIP Code</label><input type="text" name="zip" style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Monthly Rent (Current)</label><input type="text" name="monthly_rent_current" style={s} /></div>
+          <div><label style={lbl}>How Long?</label><input type="text" name="how_long_current" style={s} /></div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style={lbl}>Previous Address</label><input type="text" name="previous_address" style={s} />
+        </div>
+        <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>City</label><input type="text" name="prev_city" style={s} /></div>
+          <div><label style={lbl}>State</label><input type="text" name="prev_state" style={s} /></div>
+          <div><label style={lbl}>ZIP Code</label><input type="text" name="prev_zip" style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+          <div><label style={lbl}>Monthly Rent (Previous)</label><input type="text" name="monthly_rent_previous" style={s} /></div>
+          <div><label style={lbl}>How Long?</label><input type="text" name="how_long_previous" style={s} /></div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <h2 style="color:var(--uw-purple); margin-bottom:0.3rem;">Emergency Contact</h2>
+        <div class="gold-bar" style="margin-left:0; margin-bottom:1.25rem;"></div>
+
+        <div style="margin-bottom:1rem;">
+          <label style={lbl}>Name (person not residing with you) *</label>
+          <input type="text" name="emergency_name" required style={s} />
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style={lbl}>Address</label><input type="text" name="emergency_address" style={s} />
+        </div>
+        <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>City</label><input type="text" name="emergency_city" style={s} /></div>
+          <div><label style={lbl}>State</label><input type="text" name="emergency_state" style={s} /></div>
+          <div><label style={lbl}>ZIP</label><input type="text" name="emergency_zip" style={s} /></div>
+          <div><label style={lbl}>Phone</label><input type="tel" name="emergency_phone" style={s} /></div>
+        </div>
+        <div style="margin-bottom:2rem;">
+          <label style={lbl}>Relationship</label><input type="text" name="emergency_relationship" style={s} />
+        </div>
+
+        <!-- Parent Information -->
+        <h2 style="color:var(--uw-purple); margin-bottom:0.3rem;">Parent Information</h2>
+        <div class="gold-bar" style="margin-left:0; margin-bottom:1.25rem;"></div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Parent / Guardian Name</label><input type="text" name="parent1_name" style={s} /></div>
+          <div><label style={lbl}>Phone</label><input type="tel" name="parent1_phone" style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>Parent / Guardian Name</label><input type="text" name="parent2_name" style={s} /></div>
+          <div><label style={lbl}>Phone</label><input type="tel" name="parent2_phone" style={s} /></div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style={lbl}>Parent Address</label><input type="text" name="parent_address" style={s} />
+        </div>
+        <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div><label style={lbl}>City</label><input type="text" name="parent_city" style={s} /></div>
+          <div><label style={lbl}>State</label><input type="text" name="parent_state" style={s} /></div>
+          <div><label style={lbl}>ZIP Code</label><input type="text" name="parent_zip" style={s} /></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+          <div><label style={lbl}>Mother's Email</label><input type="email" name="mother_email" style={s} /></div>
+          <div><label style={lbl}>Father's Email</label><input type="email" name="father_email" style={s} /></div>
+        </div>
+
+        <!-- References -->
+        <h2 style="color:var(--uw-purple); margin-bottom:0.3rem;">References</h2>
+        <div class="gold-bar" style="margin-left:0; margin-bottom:1.25rem;"></div>
+
+        {[1,2,3].map(i => (
+          <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div><label style={lbl}>{i === 1 ? 'Name' : ''}&nbsp;</label><input type="text" name={`ref${i}_name`} style={s} /></div>
+            <div><label style={lbl}>{i === 1 ? 'Address' : ''}&nbsp;</label><input type="text" name={`ref${i}_address`} style={s} /></div>
+            <div><label style={lbl}>{i === 1 ? 'Phone' : ''}&nbsp;</label><input type="tel" name={`ref${i}_phone`} style={s} /></div>
+          </div>
+        ))}
+
+        <!-- Certification & Signature -->
+        <div style="background:var(--bg-gray); border-radius:6px; padding:1.25rem 1.5rem; margin:2rem 0 1.5rem;">
+          <p style="margin:0 0 1rem; font-size:0.9rem; font-style:italic;">
+            I certify that the information provided on this form is correct.
+          </p>
+          <div style="display:grid; grid-template-columns:1fr 180px; gap:1rem;">
+            <div><label style={lbl}>Typewritten Signature (Full Name) *</label><input type="text" name="signature" required style={s} /></div>
+            <div><label style={lbl}>Date *</label><input type="text" name="date" required style={s} id="appDate" /></div>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem; color:var(--text-light); margin-bottom:1.5rem; text-align:center;">
+          After submitting, email a copy of your <strong>UW Student ID</strong> and <strong>Driver's License or Passport</strong> to
           <a href="mailto:uwmanor@gmail.com">uwmanor@gmail.com</a>.
         </p>
-      </div>
 
-      <!-- CONTACT BOX -->
-      <div class="address-block" style="max-width:480px; margin:0 auto;">
-        <h3>Contact Us First</h3>
-        <p>Call or email to confirm availability before applying.</p>
-        <p style="font-size:1.1rem; font-weight:700;">
-          <a href="tel:+12068582843" style="color:#fff;">206-858-2843</a>
-        </p>
-        <p>
-          <a href="mailto:uwmanor@gmail.com" style="color:var(--uw-gold-light);">uwmanor@gmail.com</a>
-        </p>
-      </div>
+        <div style="text-align:center;">
+          <button type="submit" class="btn btn--gold" style="font-size:1.1rem; padding:1rem 3.5rem; cursor:pointer; border:none;">
+            Submit Application
+          </button>
+        </div>
+
+      </form>
 
     </div>
   </section>
 
 </BaseLayout>
+
+<script>
+  const d = document.getElementById('appDate') as HTMLInputElement;
+  if (d && !d.value) d.value = new Date().toLocaleDateString('en-US');
+</script>
