@@ -47,6 +47,11 @@ const lbl = "display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.
         <h2 style="color:var(--uw-purple); margin-bottom:0.3rem;">Applicant Information</h2>
         <div class="gold-bar" style="margin-left:0; margin-bottom:1.25rem;"></div>
 
+        <div style="margin-bottom:1rem;">
+          <label style={lbl}>Name of Group</label>
+          <input type="text" name="group_name" placeholder="e.g. Sorority name, or name of the group leader" style={s} />
+        </div>
+
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
           <div><label style={lbl}>Full Name *</label><input type="text" name="name" required style={s} /></div>
           <div><label style={lbl}>UW Student Status *</label><input type="text" name="uw_student_status" placeholder="e.g. Junior, Senior, Graduate" required style={s} /></div>
