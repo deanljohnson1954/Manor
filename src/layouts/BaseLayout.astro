@@ -15,9 +15,9 @@ const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
 const siteTitle = 'UW Manor | Student Housing Seattle';
 const fullTitle = title === 'Home' ? siteTitle : `${title} | UW Manor`;
-const siteUrl = 'https://deanljohnson1954.github.io/Manor';
-const canonical = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
-const ogImage = `${siteUrl}${image}`;
+const siteUrl = Astro.site!.origin;
+const canonical = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
 
 const path = Astro.url.pathname;
 ---
