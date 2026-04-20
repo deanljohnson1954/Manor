@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /apply-thanks
+
+Sitemap: https://uwmanor.com/sitemap-index.xml

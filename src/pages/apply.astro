@@ -1,13 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const b = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://uwmanor.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Apply", "item": "https://uwmanor.com/apply"}
+  ]
+};
 ---
 
 <BaseLayout
   title="Apply"
-  description="Download the UW Manor fillable rental application. Fill it out, then print or email to uwmanor@gmail.com."
+  description="Apply to rent UW Manor — student group rental near the University of Washington, Seattle. Download our fillable PDF application, complete it, and email it to uwmanor@gmail.com."
   image="/images/exterior-hero.jpg"
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
 
   <div class="page-header">
     <div class="container">

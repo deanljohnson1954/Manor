@@ -32,34 +32,59 @@ const path = Astro.url.pathname;
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="UW Manor" />
-    <meta name="keywords" content="UW Manor, student housing Seattle, University of Washington housing, group rental Seattle, Seattle student apartments" />
+    <meta name="keywords" content="UW Manor, student housing Seattle, University of Washington housing, group rental Seattle, Seattle student apartments, student rental near UW campus, furnished student housing Seattle, 5048 17th Ave NE Seattle, UW student house, University District rental" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="UW Manor exterior — student group rental near University of Washington, Seattle" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="UW Manor" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <meta name="twitter:image:alt" content="UW Manor exterior — student group rental near University of Washington, Seattle" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "ApartmentComplex",
+      "@type": ["ApartmentComplex", "LocalBusiness"],
+      "@id": "https://uwmanor.com/#business",
       "name": "UW Manor",
-      "description": "Student group rental house near the University of Washington, Seattle.",
+      "description": "Student group rental house near the University of Washington. 12 bedrooms, 5 bathrooms, furnished common areas, large backyard, decks, and parking. Up to 15 residents.",
       "url": siteUrl,
+      "image": `${siteUrl}/images/exterior-hero.jpg`,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "5048 17th Ave. NE",
+        "streetAddress": "5048 17th Ave NE",
         "addressLocality": "Seattle",
         "addressRegion": "WA",
         "postalCode": "98105",
         "addressCountry": "US"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.6663,
+        "longitude": -122.3091
+      },
       "telephone": "+1-760-603-0022",
-      "email": "uwmanor@gmail.com"
+      "email": "uwmanor@gmail.com",
+      "numberOfRooms": 12,
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Private Fenced Backyard", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Monthly Professional Cleaning", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Furnished Common Areas", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Parking", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Upper and Lower Decks", "value": true}
+      ],
+      "containedInPlace": {
+        "@type": "City",
+        "name": "Seattle"
+      }
     })} />
+    <slot name="head" />
     <link rel="icon" type="image/svg+xml" href={`${b}/favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
