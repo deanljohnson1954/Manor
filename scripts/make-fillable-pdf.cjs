@@ -59,13 +59,13 @@ async function build() {
   page.drawRectangle({ x:0, y:700, width:612, height:2,  color:GOLD  });
   txt('UW MANOR',                    38, 740, 22, B, GOLD);
   txt('STUDENT RENTAL APPLICATION',  38, 720, 12, B, GOLD_LIGHT);
-  txt('5048 17th Ave NE  ·  Seattle, WA 98105  ·  706-603-0022  ·  uwmanor@gmail.com',
+  txt('5048 17th Ave NE  ·  Seattle, WA 98105  ·  760-603-0022  ·  uwmanor@gmail.com',
     38, 706, 7.5, R, GOLD_LIGHT);
 
   // Bottom footer band
   page.drawRectangle({ x:0, y:0, width:612, height:16, color:GREEN });
   page.drawRectangle({ x:0, y:16, width:612, height:1.5, color:GOLD });
-  txt('uwmanor@gmail.com  ·  706-603-0022  ·  5048 17th Ave NE, Seattle WA 98105',
+  txt('uwmanor@gmail.com  ·  760-603-0022  ·  5048 17th Ave NE, Seattle WA 98105',
     140, 5, 6.5, R, GOLD_LIGHT);
 
   // ── Layout constants ──────────────────────────────────────────────────────
